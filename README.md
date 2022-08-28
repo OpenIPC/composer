@@ -6,5 +6,5 @@
 ## Quick Start - run one command for happiness ;)
 
 ```
-https://github.com/ZigFisher/composer.git && cd composer && ./stapler.sh t31_vixand
+https://github.com/ZigFisher/composer.git && cd composer && ./Stapler t31_vixand
 ```
