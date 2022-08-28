@@ -1,0 +1,7 @@
+config BR2_PACKAGE_DBELL_INA219
+	bool "dbell-ina219"
+	default n
+	help
+	  Simple I2C telemetry system
+
+	  https://dbell.ca

@@ -1,0 +1,14 @@
+include $(BR2_EXTERNAL_INGENIC_PATH)/linux/linux-ext-ingenic_patcher.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/dbell-ina219/dbell-ina219.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/dbell-param/dbell-param.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/dbell-web/dbell-web.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/dbell-x4/dbell-x4.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/dropbear-openipc/dropbear-openipc.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/fwprintenv-openipc/fwprintenv-openipc.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/ingenic-osdrv-t31/ingenic-osdrv-t31.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/ingenic_patcher/ingenic_patcher.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/ipctool/ipctool.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/libcurl-openipc/libcurl-openipc.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/linux-firmware-openipc/linux-firmware-openipc.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/mbedtls-openipc/mbedtls-openipc.mk
+include $(BR2_EXTERNAL_INGENIC_PATH)/package/vtund-openipc/vtund-openipc.mk
