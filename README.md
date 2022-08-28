@@ -1,6 +1,6 @@
 # COMPOSER
 
-**Creating OpenIPC firmware with you own custom settings**
+**Creating OpenIPC firmware with custom settings**
 
 
 ## Quick Start - run one command for happiness ;)
