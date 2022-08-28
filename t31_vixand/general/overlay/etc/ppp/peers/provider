@@ -1,0 +1,2 @@
+file /etc/ppp/options
+connect "/usr/sbin/chat -v -t15 -f /etc/ppp/chatscripts/modem.chat"

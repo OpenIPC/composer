@@ -1,0 +1,12 @@
+bsd_comp
+ch341
+option
+ppp_async
+ppp_deflate
+ppp_generic
+ppp_mppe
+slhc
+usb_wwan
+usbserial
+vfat
+
