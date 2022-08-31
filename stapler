@@ -22,16 +22,17 @@ echo_c() {
     echo -e "$t"
 }
 
+2archive() {
+    mkdir -p ../archive/${PROJECT}_${OUTTIME}
+    cp -av output/images/*.tar output/images/rootfs.squashfs.* output/images/uImage.* ../archive/${PROJECT}_${OUTTIME}
+    echo_c 35 "\nYou can get the new assembled firmware components here:\n"
+    tree -C ../archive/${PROJECT}_${OUTTIME}
+}
+
 2tftp() {
     echo_c 32 "\nStart transferring files to the TFTP server ...\n"
     scp -r output/images/rootfs.squashfs.*  output/images/uImage.* ${TFTPSRV}
 }
-
-2archive() {
-    mkdir -p ../archive/${PROJECT}_${OUTTIME}
-    cp -av output/images/rootfs.squashfs.*  output/images/uImage.* ../archive/${PROJECT}_${OUTTIME}
-}
-
 
 
 
@@ -43,8 +44,6 @@ cp -afv projects/${PROJECT}/* firmware
 cd firmware
 ./building.sh ${PROJECT}
 2archive; 2tftp
-echo_c 35 "\nYou can get the new assembled firmware components here:\n"
-tree -C ../archive/${PROJECT}_${OUTTIME}
 echo_c 35 "\nRollback to home ...\n"
 cd -
 
