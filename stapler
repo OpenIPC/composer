@@ -13,7 +13,7 @@ RELEASE=""
 PROJECT="$1"
 PROJECT="${PROJECT:=t31_vixand}"
 TFTPSRV="root@172.17.32.17:/mnt/bigger-2tb/Rotator/TFTP"
-
+OUTTIME=$(date +"%Y%m%d")
 
 echo_c() {
     # 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white, 38 grey
@@ -22,9 +22,10 @@ echo_c() {
 }
 
 2tftp() {
-  echo_c 32 "\nStart transferring files to the TFTP server ...\n"
-  scp -r $@ ${TFTPSRV}
+    echo_c 32 "\nStart transferring files to the TFTP server ...\n"
+    scp -r $@ ${TFTPSRV}
 }
+
 
 
 
@@ -38,7 +39,10 @@ cd Firmware
 echo_c 35 "\nYou can get the new assembled firmware components here:\n"
 tree -C output/images
 2tftp output/images/rootfs.squashfs.*  output/images/uImage.*
-mkdir ../Output/${Project}_$(date +"%Y%m%d")
-cp -av output/images/rootfs.squashfs.*  output/images/uImage.*
+mkdir -p ../Output/${PROJECT}_
+cp -av output/images/rootfs.squashfs.*  output/images/uImage.* ../Output/${PROJECT}_${OUTTIME}
 echo_c 35 "\nRollback to home ...\n"
 cd -
+
+
+# tree -L 1 Projects
