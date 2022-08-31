@@ -3,5 +3,6 @@
 # Learn more about .gitignore:
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
-# Assembly folder
+# Assembly folders
 Firmware/
+Output/

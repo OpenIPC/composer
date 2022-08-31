@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# OpenIPC (c) | 2022.08.28
+# OpenIPC (c) | version 2022.08.31
 
 # Autoupdate COMPOSER repo
 # Remove old building folder (full rebuild)
@@ -22,13 +22,13 @@ echo_c() {
 }
 
 2tftp() {
-  echo_c 32 "\nStart transferring files to the TFTP server...\n"
+  echo_c 32 "\nStart transferring files to the TFTP server ...\n"
   scp -r $@ ${TFTPSRV}
 }
 
 
 
-echo_c 32 "\nAttention, let's start working on the ${PROJECT} project...\n"
+echo_c 32 "\nAttention, let's start working on the ${PROJECT} project ...\n"
 git pull
 rm -rf Firmware
 git clone --depth=1 https://github.com/OpenIPC/firmware.git Firmware
@@ -38,4 +38,7 @@ cd Firmware
 echo_c 35 "\nYou can get the new assembled firmware components here:\n"
 tree -C output/images
 2tftp output/images/rootfs.squashfs.*  output/images/uImage.*
+mkdir ../Output/${Project}_$(date +"%Y%m%d")
+cp -av output/images/rootfs.squashfs.*  output/images/uImage.*
+echo_c 35 "\nRollback to home ...\n"
 cd -
