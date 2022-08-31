@@ -4,5 +4,5 @@
 #     https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 
 # Assembly folders
-Firmware/
-Output/
+archive/
+firmware/

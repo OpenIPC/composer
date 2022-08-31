@@ -24,7 +24,7 @@ echo_c() {
 
 2archive() {
     mkdir -p ../archive/${PROJECT}_${OUTTIME}
-    cp -av output/images/*.tar output/images/rootfs.squashfs.* output/images/uImage.* ../archive/${PROJECT}_${OUTTIME}
+    cp -a output/images/*.tar output/images/rootfs.squashfs.* output/images/uImage.* ../archive/${PROJECT}_${OUTTIME}
     echo_c 35 "\nYou can get the new assembled firmware components here:\n"
     tree -C ../archive/${PROJECT}_${OUTTIME}
 }
