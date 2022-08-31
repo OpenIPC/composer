@@ -1,4 +1,4 @@
 #!/bin/sh
 
-tunnel vtun.zftlab.org
+tunnel ipc.vixand.com
 
