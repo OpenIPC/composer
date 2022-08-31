@@ -15,6 +15,7 @@ PROJECT="${PROJECT:=t31_vixand}"
 TFTPSRV="root@172.17.32.17:/mnt/bigger-2tb/Rotator/TFTP"
 OUTTIME=$(date +"%Y%m%d")
 
+
 echo_c() {
     # 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white, 38 grey
     t="\e[1;$1m$2\e[0m" || t="$2"
@@ -23,7 +24,12 @@ echo_c() {
 
 2tftp() {
     echo_c 32 "\nStart transferring files to the TFTP server ...\n"
-    scp -r $@ ${TFTPSRV}
+    scp -r output/images/rootfs.squashfs.*  output/images/uImage.* ${TFTPSRV}
+}
+
+2archive() {
+    mkdir -p ../archive/${PROJECT}_${OUTTIME}
+    cp -av output/images/rootfs.squashfs.*  output/images/uImage.* ../archive/${PROJECT}_${OUTTIME}
 }
 
 
@@ -31,16 +37,14 @@ echo_c() {
 
 echo_c 32 "\nAttention, let's start working on the ${PROJECT} project ...\n"
 git pull
-rm -rf Firmware
-git clone --depth=1 https://github.com/OpenIPC/firmware.git Firmware
-cp -afv Projects/${PROJECT}/* Firmware
-cd Firmware
+rm -rf firmware
+git clone --depth=1 https://github.com/OpenIPC/firmware.git firmware
+cp -afv projects/${PROJECT}/* firmware
+cd firmware
 ./building.sh ${PROJECT}
+2archive; 2tftp
 echo_c 35 "\nYou can get the new assembled firmware components here:\n"
-tree -C output/images
-2tftp output/images/rootfs.squashfs.*  output/images/uImage.*
-mkdir -p ../Output/${PROJECT}_
-cp -av output/images/rootfs.squashfs.*  output/images/uImage.* ../Output/${PROJECT}_${OUTTIME}
+tree -C ../archive/${PROJECT}_${OUTTIME}
 echo_c 35 "\nRollback to home ...\n"
 cd -
 
