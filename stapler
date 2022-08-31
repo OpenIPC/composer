@@ -17,7 +17,7 @@ OUTTIME=$(date +"%Y%m%d")
 
 
 echo_c() {
-    # 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white, 38 grey
+    # 30 grey, 31 red, 32 green, 33 yellow, 34 blue, 35 magenta, 36 cyan, 37 white
     t="\e[1;$1m$2\e[0m" || t="$2"
     echo -e "$t"
 }
@@ -36,8 +36,11 @@ echo_c() {
 
 
 
-echo_c 32 "\nAttention, let's start working on the ${PROJECT} project ...\n"
+echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
+tree -C projects/${PROJECT}; sleep 3
+echo_c 33 "\nSync of Composer repo ...\n"
 git pull
+echo_c 33 "\nDownload Firmware repo ...\n"
 rm -rf firmware
 git clone --depth=1 https://github.com/OpenIPC/firmware.git firmware
 cp -afv projects/${PROJECT}/* firmware
