@@ -34,29 +34,27 @@ echo_c() {
     scp -r output/images/rootfs.squashfs.*  output/images/uImage.* ${TFTPSRV}
 }
 
-projects() {
+
+if [ -n ${PROJECT} ]; then
+    echo_c 31 "\nPlease specify one project from the list at the command line:\n"
     tree -L 1 projects
-}
+else
+    echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
+    tree -C projects/${PROJECT}; sleep 3
+    echo_c 33 "\nSync of Composer repo ...\n"
+    git pull
+    echo_c 33 "\nDownload Firmware repo ...\n"
+    rm -rf firmware
+    git clone --depth=1 https://github.com/OpenIPC/firmware.git firmware
+    cp -afv projects/${PROJECT}/* firmware
+    cd firmware
+    ./building.sh ${PROJECT}
+    2archive; 2tftp
+    echo_c 35 "\nRollback to home ...\n"
+    cd -
+fi
 
-compose () {
-    echo OK
-}
 
-
-
-echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
-tree -C projects/${PROJECT}; sleep 3
-echo_c 33 "\nSync of Composer repo ...\n"
-git pull
-echo_c 33 "\nDownload Firmware repo ...\n"
-rm -rf firmware
-git clone --depth=1 https://github.com/OpenIPC/firmware.git firmware
-cp -afv projects/${PROJECT}/* firmware
-cd firmware
-./building.sh ${PROJECT}
-2archive; 2tftp
-echo_c 35 "\nRollback to home ...\n"
-cd -
 
 
 
