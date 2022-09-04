@@ -38,6 +38,10 @@ projects() {
     tree -L 1 projects
 }
 
+compose () {
+    echo OK
+}
+
 
 
 echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
