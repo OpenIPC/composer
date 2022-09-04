@@ -1,17 +1,23 @@
 #!/bin/sh
+#
+# Start GPIO initialization
+#
 
 KMOD_PATH=/lib/modules/3.10.14__isvp_swan_1.0__/ingenic
 
 
-insmod ${KMOD_PATH/%\//}/ircut.ko; rmmod ircut
-# insmod ${KMOD_PATH/%\//}/gpio.ko
+start() {
+    printf "Start GPIO initialization"
+    insmod ${KMOD_PATH/%\//}/ircut.ko; rmmod ircut
+    # insmod ${KMOD_PATH/%\//}/gpio.ko
 
-for PIN in $(seq 56 58); do
-    # echo ${PIN} >/proc/jz/claim/gpio
-    echo ${PIN} > /sys/class/gpio/export
-    echo out > /sys/class/gpio/gpio${PIN}/direction
-    echo 0 > /sys/class/gpio/gpio${PIN}/value
-done
+    for PIN in $(seq 57 58); do
+        # echo ${PIN} >/proc/jz/claim/gpio
+        echo ${PIN} > /sys/class/gpio/export
+        echo out > /sys/class/gpio/gpio${PIN}/direction
+        echo 0 > /sys/class/gpio/gpio${PIN}/value
+    done
+}
 
 pingpong () {
     echo 0 > /sys/class/gpio/gpio57/value
@@ -24,4 +30,16 @@ pingpong () {
     echo 0 > /sys/class/gpio/gpio58/value
 }
 
-pingpong
+
+case "$1" in
+    start)
+        start
+        pingpong
+        ;;
+    *)
+        echo "Usage: $0 {start}"
+        exit 1
+esac
+
+exit $?
+
