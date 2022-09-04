@@ -1,0 +1,25 @@
+#!/bin/sh
+
+KMOD_PATH=/lib/modules/3.10.14__isvp_swan_1.0__/ingenic
+
+
+insmod ${KMOD_PATH/%\//}/ircut.ko; rmmod ircut
+
+for PIN in $(seq 56 58); do
+    echo ${PIN} > /sys/class/gpio/export
+    echo out > /sys/class/gpio/gpio${PIN}/direction
+    echo 0 > /sys/class/gpio/gpio${PIN}/value
+done
+
+relay () {
+    echo 0 > /sys/class/gpio/gpio57/value
+    echo 1 > /sys/class/gpio/gpio58/value
+    sleep 0.5
+    echo 1 > /sys/class/gpio/gpio57/value
+    echo 0 > /sys/class/gpio/gpio58/value
+    sleep 0.5
+    echo 0 > /sys/class/gpio/gpio57/value
+    echo 0 > /sys/class/gpio/gpio58/value
+}
+
+relay
