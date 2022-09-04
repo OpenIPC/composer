@@ -34,6 +34,10 @@ echo_c() {
     scp -r output/images/rootfs.squashfs.*  output/images/uImage.* ${TFTPSRV}
 }
 
+projects() {
+    tree -L 1 projects
+}
+
 
 
 echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
@@ -51,4 +55,4 @@ echo_c 35 "\nRollback to home ...\n"
 cd -
 
 
-# tree -L 1 Projects
+

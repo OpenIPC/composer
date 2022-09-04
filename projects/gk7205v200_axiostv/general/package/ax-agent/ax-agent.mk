@@ -1,6 +1,6 @@
 ################################################################################
 #
-# ax-agent | updated 2022.08.10
+# ax-agent | updated 2022.09.04
 #
 ################################################################################
 
@@ -16,6 +16,9 @@ define AX_AGENT_BUILD_CMDS
 endef
 
 define AX_AGENT_INSTALL_TARGET_CMDS
+	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/init.d
+	cp ../general/package/ax-agent/files/S97agent $(TARGET_DIR)/etc/init.d
+
 	install -m 0755 -D $(@D)/ax-agent $(TARGET_DIR)/usr/sbin/ax-agent
 endef
 
