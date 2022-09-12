@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# OpenIPC (c) | version 2022.08.31
+# OpenIPC (c) | version 2022.09.12
 
 # Autoupdate COMPOSER repo
 # Remove old building folder (full rebuild)
