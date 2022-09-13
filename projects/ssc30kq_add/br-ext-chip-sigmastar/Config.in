@@ -1,0 +1,1 @@
+source "$BR2_EXTERNAL_SIGMASTAR_PATH/package/sigmastar-osdrv-infinity6e/Config.in"
