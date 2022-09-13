@@ -2,6 +2,6 @@
 
 int main (void)
 {
-  puts ("Hello, World!");
+  puts ("Welcome to OpenIPC !");
   return 0;
 }

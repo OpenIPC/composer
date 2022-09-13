@@ -1,9 +1,9 @@
 #!/bin/sh
 
-DAEMON="ax-agent"
+DAEMON="demo-openipc"
 PIDFILE="/var/run/$DAEMON.pid"
 
-AGENT_ARGS=""
+DAEMON_ARGS=""
 
 # shellcheck source=/dev/null
 [ -r "/etc/default/$DAEMON" ] && . "/etc/default/$DAEMON"
@@ -15,7 +15,7 @@ start() {
 	[ -f /usr/sbin/$DAEMON ] || echo -en "DISABLED, "
 	# shellcheck disable=SC2086 # we need the word splitting
 	start-stop-daemon -b -m -S -q -p "$PIDFILE" -x "/usr/sbin/$DAEMON" \
-		-- $AGENT_ARGS
+		-- $DAEMON_ARGS
 	status=$?
 	if [ "$status" -eq 0 ]; then
 		echo "OK"
