@@ -1,0 +1,51 @@
+
+```
+ delete mode 100644 br-ext-chip-anyka/board/ak3918ev200/kernel/ak3918ev200.generic.config
+ delete mode 100755 br-ext-chip-anyka/board/ak3918ev200/kernel/overlay/lib/libakaec.a
+ delete mode 100644 br-ext-chip-anyka/board/ak3918ev200/kernel/overlay/lib/libakaec2.a
+ delete mode 100644 br-ext-chip-anyka/board/ak3918ev200/kernel/overlay/lib/libfha.a
+ delete mode 100644 br-ext-chip-anyka/board/ak3918ev200/kernel/patches/001-ak3918-kernel-3.4.35.patch
+ delete mode 100644 br-ext-chip-anyka/board/ak3918ev200/kernel/patches/003-overlayfs-v13-3.4-rc7.patch
+ delete mode 120000 br-ext-chip-anyka/board/ak3918ev200/kernel/patches/20_fix_gcc8.patch
+ delete mode 100644 br-ext-chip-anyka/configs/unknown_unknown_ak3918ev200_openipc_defconfig
+ delete mode 120000 br-ext-chip-anyka/package/anyka-osdrv-ak3918ev200
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/Config.in
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/anyka-osdrv-ak3918ev200.mk
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/akcamera.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_ar0130.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_gc1024.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_gc1034.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_h42.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_h61.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_h62.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_ov9712.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1035.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1045.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1135.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1145.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1235.ko
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/kmod/sensor_sc1245.ko
+ delete mode 100755 general/package/anyka-osdrv-ak3918ev200/files/script/S95anyka
+ delete mode 100755 general/package/anyka-osdrv-ak3918ev200/files/script/ircut_demo
+ delete mode 100755 general/package/anyka-osdrv-ak3918ev200/files/script/load_anyka
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_9712.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_ar0130.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_gc1024.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_h42.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_h42_krt.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1035.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1035_ja.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1035_yws.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1045.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1045_ja.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1045_yws.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1135.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1135_yws.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1145.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1145_yws.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1235.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1235_1.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1235_2.conf
+ delete mode 100644 general/package/anyka-osdrv-ak3918ev200/files/sensor/config/isp_sc1245.conf
+
+```
