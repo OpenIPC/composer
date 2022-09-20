@@ -46,6 +46,7 @@ else
     rm -rf openipc
     git clone --depth=1 https://github.com/OpenIPC/firmware.git openipc
     cp -afv projects/${PROJECT}/* openipc
+    cp -afv packages/* openipc/general/package
     cd openipc
     ./building.sh ${PROJECT}
     2archive; 2tftp
