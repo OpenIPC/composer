@@ -18,7 +18,7 @@ start() {
     done
 }
 
-pingpong () {
+pingpong() {
     echo 0 > /sys/class/gpio/gpio57/value
     echo 1 > /sys/class/gpio/gpio58/value
     sleep 0.5
