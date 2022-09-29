@@ -8,3 +8,8 @@
 ```
 git clone https://github.com/OpenIPC/composer.git && cd composer && ./stapler t31_vixand
 ```
+
+## GitHub repo
+
+[https://github.com/OpenIPC/composer](https://github.com/OpenIPC/composer)
+
