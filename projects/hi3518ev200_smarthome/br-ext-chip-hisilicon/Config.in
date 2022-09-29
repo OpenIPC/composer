@@ -23,6 +23,7 @@ source "$BR2_EXTERNAL_HISILICON_PATH/package/hisilicon-osdrv-hi3519v101/Config.i
 source "$BR2_EXTERNAL_HISILICON_PATH/package/i2c-telemetry/Config.in"
 source "$BR2_EXTERNAL_HISILICON_PATH/package/ipctool/Config.in"
 source "$BR2_EXTERNAL_HISILICON_PATH/package/json-c-openipc/Config.in"
+source "$BR2_EXTERNAL_HISILICON_PATH/package/jsonfilter/Config.in"
 source "$BR2_EXTERNAL_HISILICON_PATH/package/lame-openipc/Config.in"
 source "$BR2_EXTERNAL_HISILICON_PATH/package/libcurl-openipc/Config.in"
 source "$BR2_EXTERNAL_HISILICON_PATH/package/libevent-openipc/Config.in"
