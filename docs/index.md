@@ -9,7 +9,7 @@
 git clone https://github.com/OpenIPC/composer.git && cd composer && ./stapler t31_vixand
 ```
 
-## GitHub repo
+## More info and examples at GitHub repo
 
 [https://github.com/OpenIPC/composer](https://github.com/OpenIPC/composer)
 
