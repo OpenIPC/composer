@@ -13,6 +13,7 @@ RELEASE=""
 PROJECT="$1"
 TFTPSRV="root@172.17.32.17:/mnt/bigger-2tb/Rotator/TFTP"
 OUTTIME=$(date +"%Y%m%d")
+RELEASE="0de21138e0261a5ef100b9980594f15dac94d225"                              # Rollback
 
 
 echo_c() {
@@ -41,20 +42,17 @@ else
     echo_c 31 "\nAttention, let's start working on the ${PROJECT} project ...\n"
     tree -C projects/${PROJECT}; sleep 3
     echo_c 33 "\nSync of Composer repo ...\n"
-    git pull
+#   git pull
     echo_c 33 "\nDownload Firmware repo ...\n"
-    rm -rf openipc
-    git clone --depth=1 https://github.com/OpenIPC/firmware.git openipc
-    cp -afv projects/${PROJECT}/* openipc
-    cp -afv packages/* openipc/general/package
+#    rm -rf openipc
+#    git clone --depth=1 https://github.com/OpenIPC/firmware.git openipc
     cd openipc
+    cp -afv ../projects/${PROJECT}/* .
+    cp -afv ../packages/* ./general/package
     ./building.sh ${PROJECT}
     2archive; 2tftp
     echo_c 35 "\nRollback to home ...\n"
     cd -
 fi
-
-
-
 
 
