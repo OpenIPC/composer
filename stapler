@@ -3,17 +3,16 @@
 # OpenIPC (c) | version 2022.09.12
 
 # Autoupdate COMPOSER repo
-# Remove old building folder (full rebuild)
+# Remove old building folder (for full rebuild)
 # Download OpenIPC repo
-# Copy files from Projects Overlay
+# Copy files from Project Overlay
 # Build Firmware
+# Copy Kernel and Rootfs to Archive
 # Copy Kernel and Rootfs to TFTP server
 
-RELEASE=""
 PROJECT="$1"
 TFTPSRV="root@172.17.32.17:/mnt/bigger-2tb/Rotator/TFTP"
 OUTTIME=$(date +"%Y%m%d")
-RELEASE="0de21138e0261a5ef100b9980594f15dac94d225"                              # Rollback
 
 
 echo_c() {
