@@ -1,0 +1,11 @@
+config BR2_PACKAGE_I2C_GPIO_CUSTOM
+	bool "i2c-gpio-custom"
+	depends on BR2_LINUX_KERNEL
+	default y
+	help
+	  Custom GPIO-based I2C driver
+
+	  https://raw.githubusercontent.com/digitalloggers/i2c-gpio-custom/master/i2c-gpio-custom.c
+
+comment "i2c-gpio-custom needs a Linux kernel to be built"
+	depends on !BR2_LINUX_KERNEL
