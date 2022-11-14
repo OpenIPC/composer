@@ -9,4 +9,4 @@ slhc
 usb_wwan
 usbserial
 vfat
-
+# i2c-gpio-custom.ko bus0=0,11,50

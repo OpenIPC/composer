@@ -1,18 +1,9 @@
-# COMPOSER
+# OpenIPC Composer
+￼_A tool to compile custom OpenIPC firmware._
 
-**Creating OpenIPC firmware with custom settings**
-
-
-## Quick Start - run one command for happiness ;)
-
+### Usage:
 ```
-git clone https://github.com/OpenIPC/composer.git && cd composer && ./stapler your_project_name
+git clone https://github.com/openipc/composer.git
+cd composer
+./stapler
 ```
-
-A list of supported projects can be found by running the command `./stapler`
-
-
-## More info and examples at GitHub repo
-
-[https://github.com/OpenIPC/composer](https://github.com/OpenIPC/composer)
-
