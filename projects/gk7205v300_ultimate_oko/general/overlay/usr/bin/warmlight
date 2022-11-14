@@ -1,0 +1,87 @@
+#!/bin/sh
+
+SLEEP=0.5
+#sleep 25;
+#z_up
+#z_up
+#z_up
+#z_up
+
+ir_inv=$(getenv ircut-inv);
+
+get_exp() {
+exp=1
+exp=$(curl -s http://localhost/metrics | grep ^isp_exptime | cut -d' ' -f2)
+bri=`expr $exp / 1000`
+echo $bri
+}
+
+get_focus() {
+#killall sample_af
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $1}'`
+echo $RST
+}
+
+get_focus1() {
+#killall sample_af
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $2}'`
+echo $RST
+}
+
+
+lt_tr_on=$(getenv light-tr-on);
+lt_tr_off=$(getenv light-tr-off);
+lt_au=$(getenv auto-light);
+lt_on=$(getenv always-on);
+lt_ltr=$(getenv delay-lt);
+
+while true; do
+clt=$(cat /tmp/lt);
+bri=$(get_exp);
+echo $bri > /tmp/lexp;
+if [[ "$lt_on" == "1" ]]
+then
+  light 1;
+else
+  if [[ "$lt_au" == "1" ]] 
+  then
+    if [ $bri -gt $lt_tr_on ]
+    then
+      if [[ "$clt" == "0" ]]
+      then
+        echo "0" > /tmp/lst
+        if [[ "$clt" == "0" ]]
+        then
+          light 1
+        fi
+      fi
+    fi
+    if [ $bri -lt $lt_tr_off ]
+    then
+      if [[ "$clt" == "1" ]]
+      then 
+        cst=$(cat /tmp/lst)
+        if [[ "$cst" == "$lt_ltr" ]]
+        then
+          light 0
+          echo "0" > /tmp/lst
+        else
+          echo "$(expr $cst + 1)" > /tmp/lst
+        fi
+      fi
+    fi
+  fi
+fi
+
+#------------------------------------------------------------------------------
+
+#egat=`sed -n '58p' /etc/network/interfaces | sed -r 's/........//'`
+#iif [[ "$egat" != "xxx.xxx.xxx.xxx" ]]
+#  then
+#  echo "BINGO  $egat"
+# ping -c 1 $egat
+#fi
+done
+

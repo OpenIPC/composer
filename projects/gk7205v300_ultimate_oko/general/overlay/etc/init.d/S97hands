@@ -1,0 +1,44 @@
+#!/bin/sh
+
+hands() {
+echo "0" > /tmp/maxf
+echo "0" > /tmp/lst
+echo "0" > /tmp/st
+echo "0" > /tmp/zx
+sleep 3;
+if [[ "$(getenv apmode)" == "1" ]]
+then
+  crAp
+else
+  crCli
+fi
+light 1
+sleep 0.5
+light 0
+#eaddrcam=`sed -n '56p' /etc/network/interfaces | sed 's/^ *//'`
+#rcaddr="address xxx.xxx.xxx.xxx"
+}
+
+case "$1" in
+start)
+        echo "hands WG"
+        hands
+        auto_f &
+        zx &
+        warmlight &
+        qw 0 AT+CU2+40
+        prconn &
+        ;;
+stop)
+        killall auto_f
+        killall zx
+        killall warmlight
+        killall morg
+        light 0
+        qw 0 AT+ALL>0
+        killall uqmi
+        qw 0 AT+CU2+0
+        killall prconn
+        ;;
+esac
+

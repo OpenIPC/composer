@@ -1,0 +1,3 @@
+#!/bin/sh
+xm-uart-motors 0 x && sleep 0.2 && xm-uart-motors 0 s && xm-uart-motors 0 s
+echo "$(date)  : f_down" >> /tmp/l_focus

@@ -1,0 +1,80 @@
+#!/bin/sh
+
+SLEEP=0.150
+
+get_focus() {
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $1}'`
+echo $RST
+}
+
+step_r() {
+cur_fs=$(get_focus)
+st=`expr $cur_fs + 1`
+camhi-motor -d r -s 85
+while [[ $st -gt $cur_fs ]]; do
+  cur_fs=$(get_focus)
+  camhi-motor -d r -s 85
+  sleep $SLEEP;
+  st=$(get_focus)
+done
+camhi-motor -d l -s 85
+}
+
+step_l() {
+cur_fs=$(get_focus)
+st=`expr $cur_fs + 1`
+camhi-motor -d l -s 85
+while [[ $st -gt $cur_fs ]]; do
+  cur_fs=$(get_focus)
+  camhi-motor -d l -s 85
+  sleep $SLEEP;
+  st=$(get_focus)
+done
+camhi-motor -d r -s 85
+}
+
+CUR_F=$(get_focus)
+
+camhi-motor -d l -s 99
+STP_R=$(get_focus)
+
+camhi-motor -d r -s 99
+sleep $SLEEP
+camhi-motor -d r -s 99
+
+STP_L=$(get_focus)
+camhi-motor -d l -s 99
+
+if [[ $STP_R -gt $CUR_F ]]
+then 
+  step_l
+else
+  if [[ $STP_L -gt $CUR_F ]] 
+  then
+    step_r
+  else
+  if [[ $CUR_F -lt 300 ]]
+    then
+    camhi-motor -d r -s 99
+    camhi-motor -d r -s 99
+    STP_R=$(get_focus)
+    camhi-motor -d l -s 99
+    camhi-motor -d l -s 99
+    camhi-motor -d l -s 99
+    camhi-motor -d l -s 99    
+    STP_L=$(get_focus)
+    camhi-motor -d r -s 99
+    camhi-motor -d r -s 99
+    if [[ $STP_R -gt $STP_L ]]
+      then
+        camhi-motor -d r -s 99
+        step_r
+      else 
+        camhi-motor -d l -s 99
+        step_l
+      fi
+    fi
+  fi
+fi
+

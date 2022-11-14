@@ -1,0 +1,146 @@
+#!/bin/sh
+
+echo "$(date +%Y-%m-%d-%H-%M-%S-%3N)  : BAF" >> /tmp/l_focus
+
+#get_focus() {
+#iRES=$(sample_af 0 c & sleep 0.25; killall sample_af)
+#RST=`echo ${RES} | awk '{print $2}'`
+#if [[ ! -z "$RST" ]]
+#then
+#echo "1"
+#else 
+#echo "$RST"
+#fi
+#}
+
+step_r() {
+echo "step r"
+#sleep $SLEEP;
+cur_fs=$(gf)
+echo $cur_fs;
+st=`expr $cur_fs + 8`
+fs_in 10;
+
+while [[ $st -gt $cur_fs ]]; do
+#  sleep $SLEEP;
+  cur_fs=$(gf)
+#echo 'step r'
+echo $cur_fs
+fs_in 10;
+#  sleep $SLEEP;
+  st=$(gf)
+echo $st;
+done
+fs_out 20;
+}
+
+step_l() {
+echo 'step l'
+#sleep $SLEEP;
+cur_fs=$(gf)
+echo $cur_fs;
+st=`expr $cur_fs + 8`
+fs_out 10
+while [[ $st -gt $cur_fs ]]; do
+# echo 'step l'; 
+# sleep $SLEEP;
+  cur_fs=$(gf)
+# echo $cur_fs;
+  fs_out 10
+# sleep $SLEEP;
+  st=$(gf)
+#echo $st;
+done
+fs_in 10
+}
+
+DD=120;
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CC_F=$(gf)
+#if [[ $CC_F -lt $DD ]]
+#then
+fs_in 60;
+#echo $CC_F
+st=$(gf)
+kf=$DD
+ct=`expr $st + 8`
+echo "ct: $ct st: $st kf:$kf";
+while [[ "$st" -lt "$ct" ]]; do
+#i sleep 0.25
+ st=$(gf)
+ fs_out 2;
+# sleep 0.25
+ ct=$(gf)
+ if [[ "$st" -eq "$ct" ]]
+  then
+  ct=`expr $ct + 8`
+ fi
+ if [[ "$ct" -lt 40 ]] 
+   then
+   ct=`expr $ct + 230`
+ fi 
+# echo "$st $ct"
+echo "ct: $ct st: $st kf:$kf";
+done
+ fs_in 1;
+#fi
+
+#sleep $SLEEP;
+#iCUR_F=$(get_focus)
+#echo "cur $CUR_F";
+#fs_in 25;
+#STP_R=$(get_focus)
+#echo "R $STP_R";
+#fs_out 50;
+#STP_L=$(get_focus)
+#echo "L $STP_L";
+#fs_in 25;
+#tek=$(get_focus)
+#echo "tek $tek";
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if [[ $STP_R -gt $CUR_F ]]
+#then 
+#  echo "Go L"
+#  step_r
+#else
+#  if [[ $STP_L -gt $CUR_F ]] 
+#  then
+#    echo "Go R";
+#    step_l
+#  else
+#  curz;
+#  fi
+#fi
+
+#tek=$(get_focus)
+#if [[ $tek -lt $CUR_F ]]
+#then
+#CUR_F=$(get_focus)
+##echo "cur $CUR_F";
+#fs_in 70;
+#STP_R=$(get_focus)
+#echo "R $STP_R";
+#fs_out 140;
+#STP_L=$(get_focus)
+#echo "L $STP_L";
+#fs_in 70;
+#tek=$(get_focus)
+#echo "tek $tek";
+#///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#if [[ $STP_R -gt $CUR_F ]]
+#then 
+#  echo "Go L"
+#  step_r
+#else
+#  if [[ $STP_L -gt $CUR_F ]] 
+#  then
+#    echo "Go R";
+#    step_l
+#  else
+#  curz;
+#  fi
+#fi
+#fi

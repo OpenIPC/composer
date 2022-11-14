@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cc=$(getenv focus-control);
+if [[ "$cc" == "1" ]]
+  then
+   if [[ "$(pren z_down)" == "0" ]]
+     then
+       z_down
+   fi
+  else
+   if [[ "$(pren c_z_down)" == "0" ]]
+     then
+       c_z_down
+   fi
+fi
+

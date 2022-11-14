@@ -1,0 +1,25 @@
+#!/bin/sh
+cc=$(getenv focus-control);
+if [[ "$cc" == 1 ]]
+  then
+    if [[ "$(getenv focus-in)" == "1" ]]
+     then
+       if [[ "$(pren baf)" == "0" ]]
+         then
+           baf
+       fi  
+     else
+       if [[ "$(pren bafl)" == "0" ]]
+         then
+           bafl
+       fi
+   fi
+  else
+   if [[ "$(pren c_baf)" == "0" ]]
+     then
+       c_baf;
+       c_saf;       
+   fi
+fi
+
+

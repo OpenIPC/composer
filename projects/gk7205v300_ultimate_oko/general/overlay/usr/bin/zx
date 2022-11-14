@@ -1,0 +1,15 @@
+#!/bin/sh
+
+while [[ -z $cur_fs ]]
+do
+ RST=`echo $(sample_af 0 c & sleep 0.07 && killall sample_af) | awk '{print $2}'`
+  if [[ ! -z "$RST" ]]
+   then
+#    echo "----------==============*************============---------------"
+#    CCTF="$RST"
+    echo $RST > /tmp/zx
+#    export CCTF
+#    export CCTF=$(echo $RST);
+  fi
+done
+

@@ -1,0 +1,11 @@
+#!/bin/sh
+while (true) 
+do
+
+sleep 1.7 && qw 0 "AT+ALL>1" && sleep 0.1 && qw 0 "AT+ALL>0" 
+sleep 1.7 && qw 0 "AT+ALL>2" && sleep 0.1 && qw 0 "AT+ALL>0" 
+sleep 1.7 && qw 0 "AT+ALL>3" && sleep 0.1 && qw 0 "AT+ALL>0" 
+sleep 1.7 && qw 0 "AT+ALL>4" && sleep 0.1 && qw 0 "AT+ALL>0" 
+sleep 1.7 && qw 0 "AT+ALL>0" && sleep 0.1 && qw 0 "AT+ALL>0" && qw 0 "AT+ALL>0";
+done
+

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+  killall sample_af
+  rm -f /tmp/saf_f
+  echo "0" > /tmp/maxf
+  sample_af 0 c >> /tmp/saf_f &
+DD=100;
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+fs_in 140;
+fs_out 140;
+it=`cat /tmp/iter`
+fs_in $it;
+

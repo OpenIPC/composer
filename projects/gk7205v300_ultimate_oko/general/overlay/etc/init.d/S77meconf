@@ -1,0 +1,134 @@
+#!/bin/sh
+
+readconfig() {
+echo "=============------------  Read cofig --------------============"
+rcfg
+echo "================--------  Parse config -------------============"
+ssid=`cat /tmp/config.txt | grep ssid | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d " " -f 2`
+key=`cat /tmp/config.txt | grep ^key | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`
+###########################
+privkey=`cat /tmp/config.txt | grep PrivateKey | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`
+addrcam=`cat /tmp/config.txt | grep Address | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`;addrcam="${addrcam%/*}"
+gateway=`cat /tmp/config.txt | grep Gateway | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`;gateway="${gateway%<*}"
+pubkey=`cat /tmp/config.txt | grep PublicKey | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`
+allowips=`cat /tmp/config.txt | grep AllowedIPs | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`;allowips="${allowips%<*}"
+endpoint=`cat /tmp/config.txt | grep Endpoint | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d: -d " " -f 2`;endpoint="${endpoint%<*}"
+###########################
+dumpconfig=`echo -n "$ssid$key"`
+}
+
+setconfig() {
+echo "===========--------------  set wifi config ------------=========="
+if [[ ! -z "$ssid" && ! -z "$key" ]]
+ then
+ cur=`sed -n '3p' /usr/bin/crCli`
+ new="wpa_passphrase $ssid $key >/tmp/wpa_supplicant.conf"
+
+ if [[ "$cur" == "$new" ]]
+   then
+   echo "Ok. ssid not replaced"
+   else
+   echo "Ok. Set new ssid, key"
+   sed -i '3d' /usr/bin/crCli
+   sed -i "3i \\$new" /usr/bin/crCli
+ fi
+fi
+
+if [[ ! -z "$privkey" && ! -z "$addrcam" && ! -z "$pubkey" && ! -z "$allowips" && ! -z "$endpoint" ]]
+ then
+  echo "=======---------- Not Null ------========"
+  corr=0
+  #########################################################################
+  addrcam="address ${addrcam%/*}"
+  gateway="gateway ${gateway%/*}"
+  privkey="PrivateKey = $privkey"
+  pubkey="PublicKey = $pubkey"
+  allowips="AllowedIPs = $allowips"
+  endpoint="Endpoint = $endpoint"
+  eaddrcam=`sed -n '48p' /etc/network/interfaces | sed 's/^ *//'`
+  egateway=`sed -n '50p' /etc/network/interfaces | sed 's/^ *//'`
+
+  eprivkey=`cat /etc/wireguard.conf | grep PrivateKey`
+  epubkey=`cat /etc/wireguard.conf | grep PublicKey`
+  eallowips=`cat /etc/wireguard.conf | grep AllowedIPs`
+  eendpoint=`cat /etc/wireguard.conf | grep Endpoint`
+  if [[ ! "$addrcam" == "$eaddrcam" ]]
+    then
+    sed -i '48d' /etc/network/interfaces
+    sed -i "48i \\$addrcam" /etc/network/interfaces
+    corr=1
+    echo "==========-----------   correct addr in interfaces ---------========"
+  fi
+
+  if [[ ! "$gateway" == "$egateway" ]]
+    then
+      sed -i '50d' /etc/network/interfaces
+      sed -i "50i \\$gateway" /etc/network/interfaces
+      corr=1
+      echo "======------ correct gateway in interfaces -----====="
+  fi
+
+  if [[ ! "$privkey" == "$eprivkey" ]]
+    then
+     corr=1
+  fi
+  if [[ ! "$pubkey" == "$epubkey" ]]
+    then
+     corr=1
+  fi
+  if [[ ! "$allowips" == "$eallowips" ]]
+    then
+     corr=1
+  fi
+  if [[ ! "$endpoint" == "$eendpoint" ]]
+    then
+     corr=1
+  fi
+  if [[ $corr == 1 ]]
+   then
+    echo "===========--------------- Set WG ----------============"
+echo "WG addr:: $addrcam"
+    if [[ ! "$addrcam" == "address xxx.xxx.xxx.xxx" ]]
+      then sed -i '46s/manual/auto/' /etc/network/interfaces
+      else sed -i '46s/auto/manual/' /etc/network/interfaces
+    fi
+    rm -f /etc/wireguard.conf
+    echo "[Interface]" >> /etc/wireguard.conf
+    echo "$privkey" >> /etc/wireguard.conf
+    echo "[Peer]" >> /etc/wireguard.conf
+    echo "$pubkey"  >> /etc/wireguard.conf
+    echo "$allowips" >> /etc/wireguard.conf
+    echo "$endpoint" >> /etc/wireguard.conf
+    echo "PersistentKeepalive = 5" >> /etc/wireguard.conf
+    rm -f /sdcard/config.hex
+    rm -f /sdcard/config.txt
+  fi
+fi
+}
+
+checkconfig() {
+echo "check config"
+if [ -f /sdcard/config.hex ]
+then
+ echo "config exist"
+ readconfig
+ setconfig
+else
+echo "config not exist"
+fi
+
+if [ -f /sdcard/hardres ]
+then
+ rm -f /sdcard/hardres
+ firstboot
+fi
+}
+
+case "$1" in
+start)
+        echo "read config on SDcard"
+        checkconfig
+        echo "set config done"
+        # commands to launch application
+        ;;
+esac

@@ -1,0 +1,79 @@
+system:
+  buffer: 2048
+image:
+  mirror: false
+  flip: false
+  rotate: none
+  contrast: 55
+  hue: 50
+  saturation: 65
+  luminance: 50
+osd:
+  enabled: true
+  template: "%a %e %B %Y %H:%M:%S"
+nightMode:
+  enabled: false
+  pinSwitchDelayUs: 150
+  irSensorPinInvert: false
+records:
+  enabled: true
+  path: /mnt/mmc/records/%Y/%m/%d/%H.mp4
+  maxUsage: 95
+video0:
+  enabled: true
+  codec: h264
+  size: 1920x1080
+  fps: 15
+  gopMode: normal
+  gopSize: 0.5
+  rcMode: avbr
+  bitrate: 2048
+video1:
+  enabled: true
+  size: 1920x1080
+  fps: 15
+  bitrate: 1024
+  codec: h264
+jpeg:
+  enabled: true
+  toProgressive: false
+mjpeg:
+  size: 640x360
+  fps: 5
+  bitrate: 1024
+audio:
+  enabled: false
+  volume: auto
+  srate: 8000
+rtsp:
+  enabled: true
+  port: 554
+hls:
+  enabled: true
+youtube:
+  enabled: true
+  url: rtmp://a.rtmp.youtube.com/live2
+  key: qk5h-kxrg-dsfk-jduh-c0jg
+motionDetect:
+  enabled: false
+  profile: outdoor
+  visualize: false
+  debug: false
+ipeye:
+  enabled: false
+onvif:
+  enabled: false
+watchdog:
+  enabled: true
+  timeout: 10
+netip:
+  enabled: false
+  user: admin
+  password: 6V0Y4HLF
+  port: 34567
+  snapshots: false
+  ignoreSetTime: false
+cloud:
+  enabled: false
+isp:
+  memMode: normal

@@ -1,0 +1,11 @@
+#!/bin/sh
+xm-uart-motors 0 -
+sleep 0.50;
+xm-uart-motors 0 s
+sleep 0.05;
+#/sdcard/xm-uart-motors 0 +
+#sleep 0.03;
+#/sdcard/xm-uart-motors 0 s
+xm-uart-motors 0 s
+xm-uart-motors 0 s
+echo "$(date)  : z_down" >> /tmp/l_focus

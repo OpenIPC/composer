@@ -1,0 +1,13 @@
+#!/bin/sh
+tt="$(fw_printenv ethaddr -n | cut -c12- | tr -d :)";
+cssid=`cat /etc/wpa_supplicant.conf | grep ssid | sed '/^#/d' | sed 's/ \{1,\}/ /g' | cut -d " " -f 2`
+nssid="ssid=\"ev300-$tt\"";
+#echo "$cssid";
+#echo "$nssid";
+echo $tt;
+#if [[ "$cssid" != "$nssid" ]]
+#   then
+#   echo "new_ssid"
+#    sed -i '5d' /etc/wpa_supplicant.conf
+#    sed -i "5i \\$nssid" /etc/wpa_supplicant.conf
+#fi
