@@ -1,5 +1,5 @@
 # OpenIPC Composer
-￼_A tool to compile custom OpenIPC firmware._
+_A tool to compile custom OpenIPC firmware._
 
 ### Usage:
 ```
