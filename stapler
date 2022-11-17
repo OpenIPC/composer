@@ -74,7 +74,7 @@ sleep 3
 echo_c 33 "\nUpdating Composer"
 git pull
 
-# rm -rf openipc
+rm -rf openipc  # Weed work with this command
 if [ ! -d "$FIRMWARE_DIR" ]; then
     echo_c 33 "\nDownloading Firmware"
     git clone --depth=1 https://github.com/OpenIPC/firmware.git "$FIRMWARE_DIR"
