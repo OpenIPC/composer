@@ -1,0 +1,11 @@
+--- a/building.sh	2023-02-02 15:32:57.318398151 +0300
++++ b/building.sh	2023-02-02 17:04:45.877941273 +0300
+@@ -159,7 +159,7 @@
+ }
+ 
+ rename() {
+-  if grep -q ultimate_defconfig ./output/.config || grep -q fpv_defconfig ./output/.config; then
++  if grep -q ultimate_defconfig ./output/.config || grep -q fpv_defconfig ./output/.config || grep -q ultimate_gateway_defconfig ./output/.config; then
+     should_fit uImage $MAX_KERNEL_SIZE_ULTIMATE
+     should_fit rootfs.squashfs $MAX_ROOTFS_SIZE_ULTIMATE
+   else

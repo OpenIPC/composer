@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+# General masquerade
+iptables -A POSTROUTING -t nat -j MASQUERADE
+#
+# Gemeral postrouting
+iptables -A POSTROUTING -t nat -j SNAT -p TCP -o eth0 -d 172.19.32.0/24 --to-source 172.19.32.200
+#
+# Host 1 - 172.19.32.178
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10122 --to-destination 172.19.32.178:22
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10154 --to-destination 172.19.32.178:554
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10167 --to-destination 172.19.32.178:34567
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10180 --to-destination 172.19.32.178:80
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10185 --to-destination 172.19.32.178:85
+#
+# Host 2 - 172.19.32.233
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10222 --to-destination 172.19.32.233:22
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10254 --to-destination 172.19.32.233:554
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10267 --to-destination 172.19.32.233:34567
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10280 --to-destination 172.19.32.233:80
+iptables -A PREROUTING -t nat -j DNAT -p TCP --dport 10285 --to-destination 172.19.32.233:85
+
