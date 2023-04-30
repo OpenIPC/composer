@@ -1,0 +1,62 @@
+#!/bin/sh
+
+light_enable() {
+echo "1" > /tmp/lt
+if [[ "$ir_inv" == "0" ]]
+  then
+   ircut_demo gk7205v300 0
+  else
+   ircut_demo gk7205v300 1
+fi
+if [[ "$lt_t" == "1" ]]
+then
+   qw 0 AT+BLH+75
+else
+  if [[ "$lt_p" -gt "0" ]]
+  then
+    devmem 0x100C0080 32 0x530
+    echo "$lt_p" >/sys/class/gpio/unexport
+    echo "$lt_p" >/sys/class/gpio/export
+    echo "out" >/sys/class/gpio/gpio$lt_p/direction
+    echo "1" >/sys/class/gpio/gpio$lt_p/value
+  fi
+fi
+
+}
+
+light_disable() {
+echo "0" > /tmp/lt
+
+if [[ "$ir_inv" == "0" ]]
+  then
+   ircut_demo gk7205v300 1
+  else
+   ircut_demo gk7205v300 0
+fi
+
+if [[ "$lt_t" == "1" ]]
+then
+   qw 0 AT+BLH+0
+else
+  if [[ "$lt_p" -gt "0" ]]
+  then
+    devmem 0x100C0080 32 0x530
+    echo "$lt_p" >/sys/class/gpio/unexport
+    echo "$lt_p" >/sys/class/gpio/export
+    echo "out" >/sys/class/gpio/gpio$lt_p/direction
+    echo "0" >/sys/class/gpio/gpio$lt_p/value
+  fi
+fi
+
+}
+
+ir_inv=$(getenv ircut-inv);
+lt_t=$(getenv light-control);
+lt_p=$(getenv light-port);
+echo "0" > /tmp/lst
+if [ $1 -eq 1 ]; then
+    light_enable
+  elif [ $1 -eq 0 ]; then
+    light_disable
+fi
+

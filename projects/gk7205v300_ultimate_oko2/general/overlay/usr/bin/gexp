@@ -1,0 +1,11 @@
+#!/bin/sh
+
+get_exp() {
+exp=1
+exp=$(curl -s http://localhost/metrics | grep ^isp_exptime | cut -d' ' -f2)
+bri=`expr $exp / 1000`
+echo $bri
+};
+
+BRI=$(get_exp);
+echo "$BRI";

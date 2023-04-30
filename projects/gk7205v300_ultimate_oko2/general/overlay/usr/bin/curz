@@ -1,0 +1,6 @@
+#!/bin/sh
+z_up
+sleep 0.05;
+z_down
+
+

@@ -1,0 +1,34 @@
+#!/bin/sh
+
+  killall sample_af
+  rm -f /tmp/saf_f
+  echo "0" > /tmp/maxf
+  sample_af 0 c >> /tmp/saf_f &
+DD=100;
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CC_F=$(gf)
+#if [[ $CC_F -lt $DD ]]
+#then
+#fs_out 180;
+fs_out 140;
+st=$(gf);
+mx=`cat /tmp/maxf`;
+kf=$DD
+ct=`expr $st + 1`
+echo "ct: $ct st: $st kf:$kf";
+while [[ "$st" -lt "$ct" ]]; do
+ st=$(gf)
+ s_fs_in 1;
+ zz=$(echo "scale=4; $st/2000" | bc);
+ sleep $zz;
+ ct=`expr $(gf) + 1`;
+ if [[ "$ct" -lt $DD ]] 
+   then
+     ct=`expr $ct + 230`
+ fi 
+echo "ct: $ct st: $st kf:$kf zz:$zz";
+done
+s_fs_out 21;
+#fi
+

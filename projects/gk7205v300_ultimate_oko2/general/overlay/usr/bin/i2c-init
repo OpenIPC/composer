@@ -1,0 +1,7 @@
+#!/bin/sh
+
+devmem 0x112C0058 32 0x1032
+devmem 0x112C005C 32 0x1032
+devmem 0x100C000C 32 0x1
+devmem 0x120101BC 32 0x801282
+i2c-motor -d i

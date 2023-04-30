@@ -1,0 +1,60 @@
+#!/bin/sh
+
+hands() {
+echo "0" > /tmp/maxf
+echo "0" > /tmp/lst
+echo "0" > /tmp/st
+echo "0" > /tmp/zx
+echo "0" > /tmp/ff
+sleep 5;
+if [[ "$(getenv apmode)" == "1" ]]
+then
+  crAp
+else
+  crCli
+fi
+
+if [[ "$(getenv focus-control)" == "2" ]]
+then
+  i2c-init
+fi
+
+if [[ "$(getenv wifif)" == "1" ]]
+then
+  modprobe rtl8821cu
+  sleep 2 &&
+  crCl
+fi
+
+
+light 1
+sleep 0.5
+light 0
+#xm-light-fan 3 2 0 75 75
+eaddrcam=`sed -n '56p' /etc/network/interfaces | sed 's/^ *//'`
+caddr="address xxx.xxx.xxx.xxx"
+sleep 25 &&
+rmmod usbserial &&
+modprobe usbserial vendor=0x28e9 product=0x018a &&
+#sleep 15 && bt
+light 0;
+}
+
+case "$1" in
+start)
+        echo "hands WG"
+        hands
+        auto_f &
+        zx &
+        warmlight &
+qw 0 "AT+ALL>0"
+qw 0 "AT+ALL>0"
+qw 0 "AT+ALL>0"
+        qw 0 AT+CU1+75
+        ;;
+stop)
+        killall uqmi
+        qw 0 AT+CU1+0
+        ;;
+esac
+

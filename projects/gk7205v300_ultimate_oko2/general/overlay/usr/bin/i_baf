@@ -1,0 +1,17 @@
+#!/bin/sh
+
+i2c-motor -d r -s 99 && sleep 0.4 && i2c-motor -d s && sleep 0.1 &&
+
+i2c-motor -d l -s 2 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && cur_fs=`expr $(gf)`
+i2c-motor -d l -s 1 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && cur_fs=`expr $(gf)`
+i2c-motor -d l -s 4 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && st=`expr $(gf) + 5`
+while [[ $st -gt $cur_fs ]]; do
+ sleep 0.17 && cur_fs=$(gf)
+ i2c-motor -d l -s 2 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && st=`expr $(gf) + 5`
+ echo "r $st"
+done
+i2c-motor -d r -s 2 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && st=`expr $(gf) + 2`
+i2c-motor -d r -s 1 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && st=`expr $(gf) + 2`
+i2c-motor -d r -s 1 && sleep 0.17 && i2c-motor -d s && sleep 0.17 && st=`expr $(gf) + 2`
+echo "r $st"
+

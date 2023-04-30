@@ -1,0 +1,40 @@
+#!/bin/sh
+cc=$(getenv focus-control);
+
+case "$cc" in
+0)
+   if [[ "$(pren c_baf)" == "0" ]]
+     then
+       echo "1" > /tmp/ff
+       c_baf &&
+       c_saf &&
+       echo "0" > /tmp/ff
+   fi
+        ;;
+1)
+    if [[ "$(getenv focus-in)" == "1" ]]
+     then
+       if [[ "$(pren baf)" == "0" ]]
+         then
+           echo "1" > /tmp/ff
+           baf &&
+           echo "0" > /tmp/ff
+       fi  
+     else
+       if [[ "$(pren bafn)" == "0" ]]
+         then
+           echo "1" > /tmp/ff
+           bafn &&
+           echo "0" > /tmp/ff
+       fi
+   fi
+        ;;
+2)
+   if [[ "$(pren i_baf)" == "0" ]]
+     then
+       echo "1" > /tmp/ff
+       i_baf &&
+       echo "0" > /tmp/ff
+   fi
+        ;;
+esac

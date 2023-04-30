@@ -1,0 +1,25 @@
+#!/bin/sh
+
+SLEEP=0.150
+
+get_focus() {
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $1}'`
+echo $RST
+}
+
+CR_L=$(get_focus)
+if [[ $CR_L -lt 300 ]]
+ then
+  curz
+fi
+baf
+
+CR_L=$(get_focus)
+
+if [[ $CR_L -lt 300 ]]
+  then
+  baf
+fi
+
+

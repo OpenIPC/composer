@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "$1" in
+start)
+        sleep 120 && s_baf
+        ;;
+stop)
+        echo "By"
+        ;;
+esac
+

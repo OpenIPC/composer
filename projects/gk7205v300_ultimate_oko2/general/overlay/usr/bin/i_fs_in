@@ -1,0 +1,3 @@
+#!/bin/sh
+i2c-motor -d l -s $1 && sleep 0.3 && i2c-motor -d s
+

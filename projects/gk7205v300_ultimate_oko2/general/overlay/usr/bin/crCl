@@ -1,0 +1,9 @@
+#!/bin/sh
+sleep 3
+wpa_passphrase $(getenv cmidf) $(getenv cmkeyf) >/tmp/wpa_supplican.conf
+sed -i '2i \\tscan_ssid=1' /tmp/wpa_supplican.conf
+sleep 3
+wpa_supplicant -B -Dnl80211 -iwlan1 -c/tmp/wpa_supplican.conf
+sleep 6
+udhcpc -i wlan1 &
+

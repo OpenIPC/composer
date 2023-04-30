@@ -1,0 +1,44 @@
+#!/bin/sh
+
+fa=$(getenv auto-focus);
+
+if [[ "$fa" == "1" ]]
+then
+  if [[ "$(getenv focus-control)" == "1" ]]
+  then
+    sleep 35;
+    s_z_up && 
+    s_z_down 
+  fi
+fi
+
+while true; do
+ft=$(getenv focus-threshold);
+fa=$(getenv auto-focus);
+FF=$(gf);
+st=$(getenv delay-tr);
+#echo $FF;
+if [[ "$fa" == "1" ]]
+then
+ if [[ "$FF" -lt "$ft" ]]
+   then
+    cst=$(cat /tmp/st)
+    if [[ "$cst" == "$st" ]]
+      then
+        s_baf 
+        sleep 3 
+        fp=$(gf) 
+        if [[ "$fp" -lt "$(expr $ft / 2)" ]]
+          then
+            curz
+#            s_baf;
+        fi
+        echo "0" > /tmp/st
+      else
+        echo "$(expr $cst + 1)" > /tmp/st
+      fi 
+   else 
+      echo "0" > /tmp/st
+  fi
+fi  
+done

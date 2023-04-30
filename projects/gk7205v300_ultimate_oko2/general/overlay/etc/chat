@@ -1,0 +1,8 @@
+#!/bin/sh
+
+at AT+CGDCONT=1,"IP","Internet"
+at AT+CGACT=1,1
+at AT+CGPADDR=1
+at AT+QCFG="usbnet",1
+at at+qnetdevctl=1,1,1
+

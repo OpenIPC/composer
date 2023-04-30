@@ -1,0 +1,23 @@
+#!/bin/sh
+
+case "$1" in
+start)
+        hwclock -s
+        pwr 7 0
+        sleep 3 &&
+        modprobe mt7601u
+        modprobe usbserial vendor=0x28e9 product=0x018a;
+#rmmod usbserial &&
+##modprobe usbserial vendor=0x28e9 product=0x018a &&
+        sleep 3 &&
+        qw 0 AT+LDB+on
+        qw 0 AT+MDM+on
+        qw 0 AT+AP5+on
+#        morg &
+        ;;
+stop)
+        pwr 7 1
+        qw 0 AT+MDM+off
+        ;;
+esac
+

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+AT="AT+BTR>0x0A"
+SLEEP=0;
+TTY=/dev/ttyUSB0
+RESULT="";
+while [[ -z "$RESULT" ]]
+do
+RESULT=$(cat $TTY & echo -ne "$AT\n" > $TTY; sleep $SLEEP; killall cat)
+if [[ "$RESULT" == *"ommand"* ]]; then
+RESULT="";
+sleep 1;
+fi
+if [[ -z "$RESULT" ]]; then
+sleep 0.1;
+fi
+done
+r=${RESULT:4}
+r=${r::-2}
+echo $r;
+

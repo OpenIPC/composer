@@ -1,0 +1,5 @@
+#!/bin/sh
+qw 0 AT+MDM+off
+sleep 1;
+qw 0 AT+MDM+on
+reboot;

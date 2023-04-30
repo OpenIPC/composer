@@ -1,0 +1,8 @@
+#!/bin/sh
+
+AT="$1"
+SLEEP=0.2
+TTY=/dev/ttyUSB3
+RESULT=$(cat $TTY & echo -ne "$AT\n" > $TTY; sleep $SLEEP; killall cat)
+echo $RESULT
+

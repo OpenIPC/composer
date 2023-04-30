@@ -1,0 +1,23 @@
+#!/bin/sh
+
+cc=$(getenv focus-control);
+case "$cc" in
+0)
+   if [[ "$(pren c_fs_out)" == "0" ]]
+     then
+       c_fs_out $1
+   fi
+        ;;
+1)
+   if [[ "$(pren fs_out)" == "0" ]]
+     then
+       fs_out $1
+   fi
+        ;;
+2)
+   if [[ "$(pren i_fs_out)" == "0" ]]
+     then
+       i_fs_out $1
+   fi
+        ;;
+esac

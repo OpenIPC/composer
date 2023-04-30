@@ -1,0 +1,10 @@
+#!/bin/sh
+
+AT="$2"
+TTY=/dev/ttyUSB$1
+echo -ne "$AT\n" > $TTY;
+echo -ne "$AT\n" > $TTY;
+echo -ne "$AT\n" > $TTY;
+echo -ne "$AT\n" > $TTY;
+
+

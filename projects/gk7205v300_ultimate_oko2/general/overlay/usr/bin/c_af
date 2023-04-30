@@ -1,0 +1,32 @@
+#!/bin/sh
+
+SLEEP=0.150
+
+get_focus() {
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $1}'`
+echo $RST
+}
+
+
+CR_L=$(get_focus)
+if [[ $CR_L -lt 300 ]]
+ then
+  c_bbaf
+fi 
+c_baf
+c_saf
+
+
+CR_L=$(get_focus)
+
+
+
+if [[ $CR_L -lt 300 ]]
+  then 
+#  echo "Zhopa"
+  c_bbaf
+  c_baf
+  c_saf
+fi  
+

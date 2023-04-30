@@ -1,0 +1,64 @@
+# Interfaces
+
+auto lo
+iface lo inet loopback
+
+manual usb0
+iface usb0 inet dhcp
+    pre-up modprobe usbserial vendor=0x2c7c product=0x6026
+    pre-up modprobe rndis_host
+    pre-up sleep 10
+    pre-up /etc/chat
+    pre-up sleep 2
+    pre-up /etc/chat
+    pre-up sleep 1
+    pre-up /etc/chat
+
+auto eth0
+iface eth0 inet dhcp
+    hwaddress ether $(fw_printenv -n ethaddr || echo 00:24:B8:FF:FF:FF)
+    #pre-up echo -e "nameserver 77.88.8.8\nnameserver 8.8.4.4\n" >/tmp/resolv.conf
+
+manual eth0:1
+iface eth0:1 inet static
+    address $(fw_printenv -n ipaddr || echo 192.168.1.10)
+    netmask 255.255.255.0
+
+auto wwan0
+iface wwan0 inet dhcp
+    pre-up sleep 1
+    pre-up modprobe option
+    pre-up modprobe qmi_wwan
+    pre-up sleep 10
+    pre-up uqmi -s -d /dev/cdc-wdm0 --start-network internet --autoconnect &
+    pre-up echo 'Y' | tee /sys/class/net/wwan0/qmi/raw_ip
+    post-down uqmi -s -d /dev/cdc-wdm0 --stop-network --autoconnect
+    post-down sleep 2
+    post-down killall uqmi
+    post-down killall uqmi
+
+
+
+manual eth2
+iface eth2 inet dhcp
+    pre-up wifi xm711
+
+auto wg0
+iface wg0 inet static
+address 192.168.77.14
+    netmask 255.255.255.0
+gateway 192.168.77.1
+    pre-up modprobe wireguard
+    pre-up ip link add dev wg0 type wireguard
+    pre-up wg setconf wg0 /etc/wireguard.conf
+    post-down ip link del dev wg0
+
+auto bbsw0
+iface bbsw0 inet static
+address 192.168.78.15
+    netmask 255.255.255.0
+gateway 192.168.78.1
+    pre-up modprobe wireguard
+    pre-up ip link add dev bbsw0 type wireguard
+    pre-up wg setconf bbsw0 /etc/wg1.conf
+    post-down ip link del dev bbsw0

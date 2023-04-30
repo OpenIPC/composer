@@ -1,0 +1,76 @@
+kernel/fs/configfs/configfs.ko:
+kernel/fs/fat/fat.ko:
+kernel/fs/fat/vfat.ko: kernel/fs/fat/fat.ko
+kernel/fs/f2fs/f2fs.ko:
+kernel/crypto/seqiv.ko:
+kernel/crypto/echainiv.ko:
+kernel/crypto/hmac.ko:
+kernel/crypto/gf128mul.ko:
+kernel/crypto/ctr.ko:
+kernel/crypto/gcm.ko:
+kernel/crypto/ccm.ko:
+kernel/crypto/crc32_generic.ko:
+kernel/crypto/drbg.ko:
+kernel/crypto/jitterentropy_rng.ko:
+kernel/crypto/ghash-generic.ko: kernel/crypto/gf128mul.ko
+kernel/drivers/net/wireless/mediatek/mt7601u/mt7601u.ko: kernel/net/mac80211/mac80211.ko kernel/net/wireless/cfg80211.ko
+kernel/drivers/net/wireless/realtek/rtl8821cu/rtl8821cu.ko: kernel/net/mac80211/mac80211.ko kernel/net/wireless/cfg80211.ko
+kernel/drivers/net/mii.ko:
+kernel/drivers/net/tun.ko:
+kernel/drivers/net/usb/cdc_ether.ko: kernel/drivers/net/usb/usbnet.ko kernel/drivers/net/mii.ko
+kernel/drivers/net/usb/rndis_host.ko: kernel/drivers/net/usb/cdc_ether.ko kernel/drivers/net/usb/usbnet.ko kernel/drivers/net/mii.ko
+kernel/drivers/net/usb/usbnet.ko: kernel/drivers/net/mii.ko
+kernel/drivers/net/usb/qmi_wwan.ko: kernel/drivers/usb/class/cdc-wdm.ko kernel/drivers/net/usb/usbnet.ko kernel/drivers/net/mii.ko
+kernel/drivers/usb/storage/usb-storage.ko: kernel/drivers/scsi/scsi_mod.ko
+kernel/drivers/usb/gadget/function/usb_f_acm.ko: kernel/drivers/usb/gadget/libcomposite.ko kernel/fs/configfs/configfs.ko kernel/drivers/usb/gadget/function/u_serial.ko
+kernel/drivers/usb/gadget/function/u_serial.ko:
+kernel/drivers/usb/gadget/function/u_ether.ko:
+kernel/drivers/usb/gadget/function/usb_f_ecm.ko: kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko kernel/fs/configfs/configfs.ko
+kernel/drivers/usb/gadget/function/usb_f_rndis.ko: kernel/drivers/usb/gadget/function/u_ether.ko kernel/drivers/usb/gadget/libcomposite.ko kernel/fs/configfs/configfs.ko
+kernel/drivers/usb/gadget/function/usb_f_mass_storage.ko: kernel/drivers/usb/gadget/libcomposite.ko kernel/fs/configfs/configfs.ko
+kernel/drivers/usb/gadget/libcomposite.ko: kernel/fs/configfs/configfs.ko
+kernel/drivers/usb/class/cdc-wdm.ko:
+kernel/drivers/usb/serial/usbserial.ko:
+kernel/drivers/usb/serial/option.ko: kernel/drivers/usb/serial/usb_wwan.ko kernel/drivers/usb/serial/usbserial.ko
+kernel/drivers/usb/serial/usb-serial-simple.ko: kernel/drivers/usb/serial/usbserial.ko
+kernel/drivers/usb/serial/usb_wwan.ko: kernel/drivers/usb/serial/usbserial.ko
+kernel/drivers/i2c/busses/i2c-tiny-usb.ko:
+kernel/drivers/scsi/scsi_mod.ko:
+kernel/drivers/scsi/scsi_transport_fc.ko: kernel/drivers/scsi/scsi_mod.ko
+kernel/drivers/scsi/sd_mod.ko: kernel/drivers/scsi/scsi_mod.ko
+kernel/net/bridge/br_netfilter.ko:
+kernel/net/wireless/cfg80211.ko:
+kernel/net/mac80211/mac80211.ko: kernel/net/wireless/cfg80211.ko
+extra/open_mipi_rx.ko: extra/open_sys_config.ko extra/open_osal.ko
+extra/wireguard.ko:
+goke/gk7205v200_aenc.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_rgn.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_acodec.ko: goke/gk7205v200_aio.ko goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_ao.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_jpege.ko: goke/gk7205v200_venc.ko goke/gk7205v200_base.ko extra/open_osal.ko
+extra/open_sensor_i2c.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_base.ko: extra/open_osal.ko
+goke/gk7205v200_vpss.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+extra/open_pwm.ko: extra/open_osal.ko
+goke/gk7205v200_ai.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+extra/open_sys_config.ko:
+extra/open_piris.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_h265e.ko: goke/gk7205v200_venc.ko goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_vgs.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+extra/open_isp.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+extra/open_wdt.ko: extra/open_osal.ko
+extra/open_sensor_spi.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_h264e.ko: goke/gk7205v200_venc.ko goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_sys.ko: goke/gk7205v200_base.ko extra/open_sys_config.ko extra/open_osal.ko
+extra/open_adc.ko: extra/open_osal.ko
+extra/open_osal.ko:
+goke/gk7205v200_ive.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_vi.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_vedu.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_adec.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_venc.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_rc.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_aio.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/gk7205v200_chnl.ko: goke/gk7205v200_base.ko extra/open_osal.ko
+goke/camhi-motor.ko:
+extra/hisi-hwrng.ko:

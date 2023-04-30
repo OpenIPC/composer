@@ -1,0 +1,76 @@
+#!/bin/sh
+
+step_r() {
+echo "r $1"
+cur_fs=$(gf)
+echo "r $1 $cur_fs"
+camhi-motor -d r -s $1 && st=`expr $cur_fs + 1`
+while [[ $st -gt $cur_fs ]]; do
+  sleep 0.2 && cur_fs=$(gf)
+  camhi-motor -d r -s $1 && st=$(gf)
+  echo "r $1 $cur_fs"
+done
+if [[ ! $1 == 1 ]]
+  then 
+   step_l $(expr $1 / 2)
+  else
+   echo "r $1 $cur_fs"
+   camhi-motor -d r -s 2 && st=$(gf)
+fi
+}
+
+step_l() {
+cur_fs=$(gf)
+#echo "l $1 $cur_fs"
+camhi-motor -d l -s $1 && st=`expr $cur_fs + 1`
+while [[ $st -gt $cur_fs ]]; do
+  cur_fs=$(gf)
+  camhi-motor -d l -s $1 && st=$(gf)
+  echo "l $1 $cur_fs"
+done
+if [[ ! $1 == 1 ]]
+  then
+    step_r $(expr $1 / 2)
+  else 
+    camhi-motor -d r -s 2 && st=$(gf)
+  echo "r $1 $cur_fs"
+fi
+}
+
+if [[ -z $1 ]]
+   then
+     ss=64
+   else
+     ss=$1
+fi
+
+while [[ $ss -gt 2 ]]
+do
+CUR_F=$(gf)
+camhi-motor -d l -s $ss && sleep 0.1 &&
+STP_R=$(gf)
+camhi-motor -d r -s $ss && sleep 0.1 &&
+camhi-motor -d r -s $ss && sleep 0.1 &&
+STP_L=$(gf)
+camhi-motor -d l -s $ss && sleep 0.1 &&
+
+echo $CUR_F;
+echo $STP_R;
+echo $STP_L;
+
+if [[ $STP_R -gt $CUR_F ]]
+then 
+  echo "Go L"
+  step_l $ss
+#  ss=1
+else
+  if [[ $STP_L -gt $CUR_F ]] 
+  then
+    echo "Go R";
+    step_r $ss
+#    ss=1
+  fi
+fi
+ss=$(expr $ss / 2)
+done
+

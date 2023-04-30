@@ -1,0 +1,64 @@
+#!/bin/sh
+
+SLEEP=0.150
+
+get_focus() {
+RES=$(sample_af 0 c & sleep $SLEEP; killall sample_af)
+RST=`echo ${RES} | awk '{print $1}'`
+echo $RST
+}
+
+step_r() {
+cur_fs=$(gf)
+camhi-motor -d r -s 32
+st=`expr $cur_fs + 1`
+while [[ $st -gt $cur_fs ]]; do
+  cur_fs=$(gf)
+  camhi-motor -d r -s 32
+  st=$(gf)
+done
+camhi-motor -d l -s 32
+}
+
+step_l() {
+cur_fs=$(gf)
+camhi-motor -d l -s 32
+st=`expr $cur_fs + 1`
+while [[ $st -gt $cur_fs ]]; do
+  cur_fs=$(gf)
+  camhi-motor -d l -s 32
+#  sleep $SLEEP;
+  st=$(gf)
+done
+camhi-motor -d r -s 32
+}
+
+CUR_F=$(gf)
+
+camhi-motor -d l -s 64
+STP_R=$(gf)
+
+camhi-motor -d r -s 64
+sleep $SLEEP
+camhi-motor -d r -s 64
+
+STP_L=$(gf)
+camhi-motor -d l -s 64
+
+#echo $CUR_F;
+#echo $STP_R;
+#echo $STP_L;
+if [[ $STP_R -gt $CUR_F ]]
+then 
+#  echo "Go L"
+  step_l
+else
+  if [[ $STP_L -gt $CUR_F ]] 
+  then
+#    echo "Go R";
+    step_r
+#  else
+#    echo "Current"
+  fi
+fi
+

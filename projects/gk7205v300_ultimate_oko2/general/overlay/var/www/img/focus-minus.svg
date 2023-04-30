@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="16"
+   height="16"
+   fill="currentColor"
+   class="bi bi-chevron-compact-down"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg590"
+   sodipodi:docname="focus-minus.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs594" />
+  <sodipodi:namedview
+     id="namedview592"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="45.875"
+     inkscape:cx="7.9891008"
+     inkscape:cy="8.0108992"
+     inkscape:window-width="1280"
+     inkscape:window-height="961"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg590" />
+  <path
+     fill-rule="evenodd"
+     d="m 1.6183951,5.5552915 a 0.5,0.5 0 0 1 0.67,-0.223 l 5.777,2.887 5.7759999,-2.888 a 0.5,0.5 0 1 1 0.448,0.894 L 8.2893951,9.225292 a 0.5,0.5 0 0 1 -0.448,0 l -6,-3.0000005 a 0.5,0.5 0 0 1 -0.223,-0.67 z"
+     id="path588" />
+  <path
+     fill-rule="evenodd"
+     d="m 1.6164538,6.7138432 a 0.5,0.5 0 0 1 0.67,-0.223 l 5.777,2.8869997 5.7760042,-2.8879997 a 0.5,0.5 0 1 1 0.448,0.894 L 8.2874538,10.383843 a 0.5,0.5 0 0 1 -0.448,0 l -6,-2.9999998 a 0.5,0.5 0 0 1 -0.223,-0.67 z"
+     id="path588-8"
+     style="fill:#ffffff" />
+</svg>

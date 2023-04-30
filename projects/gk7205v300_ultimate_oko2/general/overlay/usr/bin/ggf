@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while [[ -z "$rr" ]]
+do 
+  rr=$(echo $(sample_af 0 c & sleep 0.18 && killall sample_af) | awk '{print $2}');
+done
+echo $rr;
+
+
+

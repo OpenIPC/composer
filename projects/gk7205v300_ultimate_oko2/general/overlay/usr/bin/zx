@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while [[ -z $cur_fs ]]
+do
+ RST=`echo $(sample_af 0 c & sleep 0.18 && killall sample_af) | awk '{print $2}'`
+  if [[ ! -z "$RST" ]]
+   then
+    echo $RST > /tmp/zx
+    sleep 0.1;
+  fi
+done

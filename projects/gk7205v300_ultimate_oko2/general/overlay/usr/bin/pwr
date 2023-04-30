@@ -1,0 +1,6 @@
+#!/bin/sh
+devmem 0x100C0080 32 0x530
+echo $1 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio$1/direction
+echo $2 > /sys/class/gpio/gpio$1/value
+

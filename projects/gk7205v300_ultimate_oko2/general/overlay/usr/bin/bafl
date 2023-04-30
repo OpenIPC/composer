@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#i  killall sample_af
+#  rm -f /tmp/saf_f
+#  sample_af 0 c >> /tmp/saf_f &
+DD=120;
+#/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+CC_F=$(gf)
+#if [[ $CC_F -lt $DD ]]
+#then
+fs_out 120;
+#echo $CC_F
+st=$(gf)
+kf=$DD
+ct=`expr $st + 1`
+echo "ct: $ct st: $st kf:$kf";
+while [[ "$st" -le "$ct" ]]; do
+ st=$(gf)
+ zz=$(echo "scale=4; $st/1000" | bc);
+ sleep $zz;
+ s_fs_in 1;
+ ct=$(gf)
+ if [[ "$ct" -lt $DD ]] 
+   then
+     ct=`expr $ct + 230`
+ fi 
+echo "ct: $ct st: $st kf:$kf zz:$zz";
+done
+s_fs_out 4;
+#fi
+

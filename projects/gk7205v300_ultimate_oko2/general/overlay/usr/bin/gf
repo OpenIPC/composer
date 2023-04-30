@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while [[ -z $r ]]
+do
+r=$(cat /tmp/zx);
+done 
+echo $r
+
+
+
+

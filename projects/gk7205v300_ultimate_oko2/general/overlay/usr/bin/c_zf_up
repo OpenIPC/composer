@@ -1,0 +1,4 @@
+#!/bin/sh
+camhi-motor -d u -s 25
+c_baf
+c_saf
