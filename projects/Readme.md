@@ -13,8 +13,6 @@
 * hi3518ev200_smarthome
 * hi3536dv100_backupper
 * msc313e_blackbird
-* ssc30kq_add
-* ssc338q_sdcard                        Must be deleted so it is already integrated in the Firmware
 * t31_baresip                           Moved to LTS status
 * t31_lite_gateway
 * t31_lite_hs
