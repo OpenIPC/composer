@@ -8,7 +8,7 @@ _A tool to compile custom OpenIPC firmware_
 ```
 git clone https://github.com/openipc/composer.git
 cd composer
-./stapler
+./building.sh
 ```
 
 ### List of available projects
