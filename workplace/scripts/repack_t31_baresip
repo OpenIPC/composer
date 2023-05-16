@@ -1,0 +1,17 @@
+#!/bin/bash
+
+cd ../../openipc
+pwd
+
+rm -rf \
+    output/per-package/libre-openipc \
+    output/per-package/librem-openipc \
+    output/per-package/baresip-openipc \
+    output/build/libre-openipc-* \
+    output/build/librem-openipc-* \
+    output/build/baresip-openipc-*
+
+BOARD=t31_baresip make br-baresip-openipc-{dirclean,rebuild}
+
+BOARD=t31_baresip make br-baresip-openipc-{dirclean,rebuild}
+
