@@ -11,5 +11,5 @@ rm -rf \
     output/build/librem-openipc-* \
     output/build/baresip-openipc-*
 
-BOARD=msc313e_baresip make br-baresip-openipc-{dirclean,rebuild}
+BOARD=t31__lite_baresip make br-baresip-openipc-{dirclean,rebuild}
 

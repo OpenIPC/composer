@@ -1,0 +1,12 @@
+--- a/mk/modules.mk	2022-03-27 11:22:42.000000000 +0300
++++ b/mk/modules.mk	2023-05-17 15:08:22.900324363 +0300
+@@ -127,8 +127,7 @@
+ USE_OMX_RPI  := $(shell $(call CC_TEST,bcm_host.h))
+ 
+ USE_OMX_BELLAGIO := $(shell $(call CC_TEST,OMX_Core.h))
+-USE_WEBRTC_AEC   := $(shell \
+-	pkg-config --exists "webrtc-audio-processing >= 0.3" && echo "yes")
++USE_WEBRTC_AEC := $(shell $(call CC_TEST,webrtc_audio_processing/webrtc/base/checks.h))
+ else
+ # Windows.
+ # Accounts for mingw with Windows SDK (formerly known as Platform SDK)

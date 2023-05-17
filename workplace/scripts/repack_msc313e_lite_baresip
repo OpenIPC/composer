@@ -3,6 +3,7 @@
 cd ../../openipc
 pwd
 
+
 rm -rf \
     output/per-package/libre-openipc \
     output/per-package/librem-openipc \
@@ -11,5 +12,11 @@ rm -rf \
     output/build/librem-openipc-* \
     output/build/baresip-openipc-*
 
-BOARD=t31_baresip make br-baresip-openipc-{dirclean,rebuild}
+BOARD=msc313e_lite_baresip make br-baresip-openipc-{dirclean,rebuild}
 
+
+rm -rf \
+    output/per-package/alsa-utils \
+    output/build/alsa-utils-* \
+
+BOARD=msc313e_lite_baresip make br-alsa-utils-{dirclean,rebuild}
