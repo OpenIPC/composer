@@ -89,23 +89,6 @@ unset _css; unset _param_domain; unset _line; unset _param_name; unset _paramete
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownTools" role="button">Tools</a>
-            <ul aria-labelledby="dropdownTools" class="dropdown-menu">
-              <li><a class="dropdown-item" href="tools.cgi">Ping & Traceroute</a></li>
-              <li><a class="dropdown-item" href="console.cgi">Web Console</a></li>
-              <li><a class="dropdown-item" href="file-manager.cgi">File Manager</a></li>
-              <li><a class="dropdown-item" href="ssh-keys.cgi">SSH Key</a></li>
-              <li><a class="dropdown-item" href="sdcard.cgi">SD Card</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownServices" role="button">Services</a>
-            <ul aria-labelledby="dropdownServices" class="dropdown-menu">
-              <% load_plugins %>
-            </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="preview.cgi">Preview</a></li>
-          <li class="nav-item dropdown">
             <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownHelp" role="button">Help</a>
             <ul aria-labelledby="dropdownHelp" class="dropdown-menu dropdown-menu-lg-end">
               <li><a class="dropdown-item" href="https://openipc.org/">About OpenIPC</a></li>
@@ -198,4 +181,3 @@ unset _css; unset _param_domain; unset _line; unset _param_name; unset _paramete
 <h2><%= $page_title %></h2>
 <% flash_read %>
 
-.

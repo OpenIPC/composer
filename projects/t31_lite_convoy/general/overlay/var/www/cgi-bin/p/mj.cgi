@@ -59,11 +59,6 @@ mj="
 .nightMode.backlightPin|GPIO pin to turn on night mode illumination||number|1,255,1|65|
 .nightMode.nightAPI|Use night mode API||boolean|true,false|false|
 .nightMode.drcOverride|Dynamic Range Compression (DRC) in night mode||number|1,1000,1|300|
-.records.enabled|Enable saving records||boolean|true,false|false|
-.records.path|Template for saving video records||string||/mnt/mmc/%Y/%m/%d/%H.mp4|Supports <a href=\"https://man7.org/linux/man-pages/man3/strftime.3.html \" target=\"_blank\">strftime()</a> format.
-.records.maxUsage|Limit of available space usage|%|range|1,100,1|95|
-.records.timelapseInterval|Timelapse capture interval|sec|number|1,65355,1|5|in seconds
-.records.timelapseFrameRate|Timelapse output file framerate|fps|number|1,100,1|2|in frames per second
 .video0.enabled|Enable Video0||boolean|true,false|true|
 .video0.codec|Video0 codec||select|h264,h265|h264|
 .video0.size|Video resolution|px|string|1920x1080,1280x720,704x576|1920x1080|
@@ -104,26 +99,8 @@ mj="
 .audio.speakerPinInvert|Audio speaker signal is inverted||boolean|true,false|false|
 .rtsp.enabled|Enable output||boolean|true,false|true|
 .rtsp.port|Port for RTSP protocol||number|1,65535,1|554|rtsp://user:pass@${network_address}:[port]/stream={0,1}
-.hls.enabled|Enable HTTP Live Streaming (HLS)||boolean|true,false|true|
-.youtube.enabled|Enable Youtube support||boolean|true,false|false|
-.youtube.key|Youtube API key||string||xxxx-xxxx-xxxx-xxxx-xxxx|
-.motionDetect.enabled|Enable motion detection||boolean|true,false|false|
-.motionDetect.visualize|Visualize motion detection||boolean|true,false|true|
-.motionDetect.debug|Enable debugging||boolean|true,false|true|
-.motionDetect.roi|Regions of Interest (ROI) for motion detection.|px|string||0x0x1296x760|
-.motionDetect.skipIn|Regions excluded from ROI.|px|string||20x20x200x300,510x330x40x15|
-.ipeye.enabled|Enable IPEYE support||boolean|true,false|false|
-.netip.enabled|Enable NETIP protocol support||boolean|true,false|false|
-.netip.user|NETIP user||string||admin|
-.netip.password-plain|NETIP password||password|||Pain-text password, it will be hashed for NETIP.
-.netip.password|NETIP password (hash)||hidden||6V0Y4HLF|
-.netip.port|NETIP port||number|1,65535,1|34567|
-.netip.snapshots|NETIP snaphots||boolean|true,false|true|
-.netip.ignoreSetTime|Ignore set time||boolean|true,false|false|
-.onvif.enabled|Enable ONVIF protocol support||boolean|true,false|false|
 .watchdog.enabled|Enable watchdog||boolean|true,false|true|
 .watchdog.timeout|Watchdog timeout|sec|number|1,600,1|10|
-.cloud.enabled|Enable cloud support||boolean|true,false|false|
 "
 
 # hide these settings unless in debug mode
@@ -137,5 +114,3 @@ mj_hide_isp_sensorConfig_vendor="ingenic"
 mj_hide_video0_codec="hi3516cv200 hi3516cv100"
 mj_hide_video1_codec="hi3516cv200 hi3516cv100"
 mj_hide_motionDetect="hi3516cv100 hi3516av100"
-
-.
