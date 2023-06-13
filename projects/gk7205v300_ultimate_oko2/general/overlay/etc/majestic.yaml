@@ -51,9 +51,7 @@ rtsp:
 hls:
   enabled: true
 youtube:
-  enabled: true
-  url: rtmp://a.rtmp.youtube.com/live2
-  key: qk5h-kxrg-dsfk-jduh-c0jg
+  enabled: false
 motionDetect:
   enabled: false
   profile: outdoor
