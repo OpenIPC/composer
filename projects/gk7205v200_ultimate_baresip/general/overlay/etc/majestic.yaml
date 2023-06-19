@@ -1,0 +1,64 @@
+system:
+  webAdmin: enabled
+  buffer: 1024
+  staticDir: /var/www/majestic
+image:
+  mirror: false
+  flip: false
+  rotate: none
+  contrast: 50
+  hue: 50
+  saturation: 50
+  luminance: 50
+osd:
+  enabled: true 
+  template: "OpenIPC phone | %F %T %Z"
+  posX: -100
+  posY: 0
+nightMode:
+  enabled: true
+  irSensorPinInvert: false
+  irCutPin1: 15
+  irCutPin2: 14
+records:
+  enabled: false
+  path: /mnt/mmc/%Y/%m/%d/%H.mp4
+  maxUsage: 95
+video0:
+  enabled: true
+  codec: h264
+  bitrate: 2048
+  rcMode: vbr
+  size: 1920x1080
+  fps: 25
+video1:
+  enabled: false
+jpeg:
+  enabled: true
+mjpeg:
+  size: 640x360
+  fps: 5
+  bitrate: 1024
+audio:
+  enabled: true
+  volume: 40
+  srate: 8000
+  speakerPinInvert: false
+  codec: alaw
+  outputEnabled: false
+rtsp:
+  enabled: true 
+  port: 554
+hls:
+  enabled: false
+youtube:
+  enabled: false
+motionDetect:
+  enabled: false
+  visualize: false
+  debug: true
+ipeye:
+  enabled: false
+watchdog:
+  enabled: true
+  timeout: 10
