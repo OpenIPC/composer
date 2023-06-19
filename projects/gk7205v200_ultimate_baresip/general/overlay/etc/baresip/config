@@ -58,6 +58,7 @@ module_path             /usr/lib/baresip/modules
 
 # UI Modules
 module                  stdio.so
+module                  g711.so
 module                  webrtc_aec.so
 module                  rtspausrc.so
 module                  goke.so

@@ -4,19 +4,45 @@ cd ../../openipc
 pwd
 
 
-rm -rf \
-    output/per-package/webrtc-audio-processing \
-    output/build/webrtc-audio-processing-*
+webrtc() {
+    #
+    rm -rf \
+        output/per-package/webrtc-audio-processing \
+        output/build/webrtc-audio-processing-*
+    #
+    BOARD=gk7205v200_ultimate_baresip make br-webrtc-audio-processing-{dirclean,rebuild}
+}
 
-BOARD=gk7205v200_ultimate_baresip make br-webrtc-audio-processing-{dirclean,rebuild}
+
+libre() {
+    #
+    rm -rf \
+        output/per-package/libre-openipc \
+        output/build/libre-openipc-*
+    #
+    BOARD=gk7205v200_ultimate_baresip make br-librem-openipc-{dirclean,rebuild}
+}
 
 
-rm -rf \
-    output/per-package/libre-openipc \
-    output/per-package/librem-openipc \
-    output/per-package/baresip-openipc \
-    output/build/libre-openipc-* \
-    output/build/librem-openipc-* \
-    output/build/baresip-openipc-*
+librem() {
+    #
+    rm -rf \
+        output/per-package/librem-openipc \
+        output/build/librem-openipc-*
+    #
+    BOARD=gk7205v200_ultimate_baresip make br-librem-openipc-{dirclean,rebuild}
+}
 
-BOARD=gk7205v200_ultimate_baresip make br-baresip-openipc-{dirclean,rebuild}
+
+baresip() {
+    #
+    rm -rf \
+        output/per-package/baresip-openipc \
+        output/build/baresip-openipc-*
+    #
+    BOARD=gk7205v200_ultimate_baresip make br-baresip-openipc-{dirclean,rebuild}
+}
+
+
+
+baresip
