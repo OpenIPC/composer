@@ -29,16 +29,16 @@ echo_c() {
 
 copy_to_archive() {
     echo_c 32 "Copy files to archive"
-    mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}_${TIMESTAMP}"
+    mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
     cp -a \
         ${FIRMWARE_DIR}/output/images/autoupdate* \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
         ${FIRMWARE_DIR}/output/images/*.tar \
-        ${COMPOSER_DIR}/archive/${PROJECT}_${TIMESTAMP}
+        ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
 
     echo_c 35 "\nAssembled firmware available in:"
-    tree -C "${COMPOSER_DIR}/archive/${PROJECT}_${TIMESTAMP}"
+    tree -C "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
 }
 
 copy_to_tftp() {
