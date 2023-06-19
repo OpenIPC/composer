@@ -3,6 +3,7 @@
 hands() {
 echo "0" > /tmp/maxf
 echo "0" > /tmp/lst
+echo "0" > /tmp/lt
 echo "0" > /tmp/st
 echo "0" > /tmp/zx
 echo "0" > /tmp/ff
