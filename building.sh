@@ -18,7 +18,7 @@ TFTP_STORAGE="root@172.17.32.17:/mnt/bigger-2tb/Rotator/TFTP"
 
 COMPOSER_DIR=$(pwd)
 FIRMWARE_DIR="${COMPOSER_DIR}/openipc"
-TIMESTAMP=$(date +"%Y%m%d")
+TIMESTAMP=$(date +"%Y%m%d%H%M")
 VERSION=$(stat -c"%Y" $0)
 
 echo_c() {
