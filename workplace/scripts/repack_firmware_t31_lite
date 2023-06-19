@@ -1,0 +1,27 @@
+#!/bin/bash
+
+MODEL=t31
+FLAVOR=lite
+
+
+cd ../../openipc/output/images
+pwd
+
+
+if [ -e uImage ]; then
+    mv uImage uImage.${MODEL}
+    md5sum uImage.${MODEL} > uImage.${MODEL}.md5sum
+fi
+
+if [ -e rootfs.squashfs ]; then
+    mv rootfs.squashfs rootfs.squashfs.${MODEL}
+    md5sum rootfs.squashfs.${MODEL} > rootfs.squashfs.${MODEL}.md5sum
+fi
+
+tar czf openipc.${MODEL}-nor-${FLAVOR}.tgz \
+    uImage.${MODEL} uImage.${MODEL}.md5sum \
+    rootfs.squashfs.${MODEL} rootfs.squashfs.${MODEL}.md5sum
+
+ls -la uImage.${MODEL} rootfs.squashfs.${MODEL} openipc.${MODEL}-nor-${FLAVOR}.tgz
+
+cd -

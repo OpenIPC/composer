@@ -3,6 +3,14 @@
 cd ../../openipc
 pwd
 
+
+rm -rf \
+    output/per-package/webrtc-audio-processing \
+    output/build/webrtc-audio-processing-*
+
+BOARD=gk7205v200_ultimate_baresip make br-webrtc-audio-processing-{dirclean,rebuild}
+
+
 rm -rf \
     output/per-package/libre-openipc \
     output/per-package/librem-openipc \
@@ -11,5 +19,4 @@ rm -rf \
     output/build/librem-openipc-* \
     output/build/baresip-openipc-*
 
-BOARD=t31__lite_baresip make br-baresip-openipc-{dirclean,rebuild}
-
+BOARD=gk7205v200_ultimate_baresip make br-baresip-openipc-{dirclean,rebuild}
