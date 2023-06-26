@@ -1,0 +1,61 @@
+system:
+  webAdmin: enabled
+  buffer: 1024
+  staticDir: /var/www/majestic
+image:
+  mirror: false
+  flip: false
+  rotate: none
+  contrast: 50
+  hue: 50
+  saturation: 50
+  luminance: 50
+osd:
+  enabled: true
+  template: "%a %e %B %Y %H:%M:%S %Z"
+nightMode:
+  enabled: true
+  irSensorPin: 8
+  irSensorPinInvert: false
+  irCutPin1: 58
+  irCutPin2: 59
+  dncDelay: 3
+records:
+  enabled: false
+  path: /mnt/mmc/%Y/%m/%d/%H.mp4
+  maxUsage: 95
+video0:
+  enabled: true
+  codec: h264
+video1:
+  enabled: false
+jpeg:
+  enabled: true
+mjpeg:
+  size: 640x360
+  fps: 5
+  bitrate: 1024
+audio:
+  enabled: false
+  volume: auto
+  srate: 8000
+rtsp:
+  enabled: true
+  port: 554
+hls:
+  enabled: false
+youtube:
+  enabled: false
+motionDetect:
+  enabled: true
+  visualize: true
+  debug: true
+ipeye:
+  enabled: true
+watchdog:
+  enabled: true
+  timeout: 10
+cloud:
+  enabled: true
+onvif:
+  enabled: true
