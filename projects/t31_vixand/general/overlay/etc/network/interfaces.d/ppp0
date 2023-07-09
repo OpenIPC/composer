@@ -1,4 +1,3 @@
-
 auto ppp0
 iface ppp0 inet ppp
     pre-up echo 61 > /sys/class/gpio/export
