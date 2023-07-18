@@ -1,0 +1,4 @@
+#!/bin/sh
+
+devmem 0x112c0070 32 0x2
+devmem 0x112c0074 32 0x2
