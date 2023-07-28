@@ -6,6 +6,7 @@
 * hi3516ev300_lite_meldana
 * hi3518ev200_cip37210
 * ssc338q_lite_pilot
+* t31_lite_convoy
 
 
 
@@ -18,7 +19,6 @@
 * hi3536dv100_backupper
 * msc313e_lite_baresip
 * t31_lite_baresip
-* t31_lite_convoy
 * t31_lite_gateway
 * t31_lite_hs
 * t31_vixand
