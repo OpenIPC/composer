@@ -59,7 +59,7 @@ copy_to_tftp() {
 }
 
 select_project() {
-    AVAILABLE_PROJECTS=$(ls -1 ${COMPOSER_DIR}/projects)
+    AVAILABLE_PROJECTS=$(ls -1 ${COMPOSER_DIR}/projects | grep '_')
     cmd="whiptail --title \"Available projects\" --menu \"Please select a project from the list below:\" 25 78 16"
     for p in $AVAILABLE_PROJECTS; do cmd="${cmd} \"$p\" \"\""; done
     PROJECT=$(eval "${cmd} 3>&1 1>&2 2>&3")
