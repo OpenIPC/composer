@@ -31,12 +31,15 @@ copy_to_archive() {
     echo_c 32 "Copy files to archive"
     mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
     cp -a \
-        ${FIRMWARE_DIR}/output/images/autoupdate* \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
         ${FIRMWARE_DIR}/output/images/*.tar \
         ${FIRMWARE_DIR}/output/images/openipc.*.tgz \
         ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
+
+    if [ -f "${FIRMWARE_DIR}/output/images/autoupdate-kernel.img" ] ; then
+        cp -a ${FIRMWARE_DIR}/output/images/autoupdate* ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
+    fi
 
     echo_c 35 "\nAssembled firmware available in:"
     tree -C "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
@@ -44,11 +47,15 @@ copy_to_archive() {
 
 copy_to_tftp() {
     echo_c 32 "\nCopy files to TFTP server"
-    scp -r ${FIRMWARE_DIR}/output/images/autoupdate* \
+    scp -r \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
         ${FIRMWARE_DIR}/output/images/openipc.*.tgz \
         ${TFTP_STORAGE}
+
+    if [ -f "${FIRMWARE_DIR}/output/images/autoupdate-kernel.img" ] ; then
+        scp -r ${FIRMWARE_DIR}/output/images/autoupdate* ${TFTP_STORAGE}
+    fi
 }
 
 select_project() {
