@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# OpenIPC | version 2022.11.15
+# OpenIPC | version 2023.07.28
 
 # Autoupdate COMPOSER repo
 # Remove old building folder (for full rebuild)
@@ -35,6 +35,7 @@ copy_to_archive() {
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
         ${FIRMWARE_DIR}/output/images/*.tar \
+        ${FIRMWARE_DIR}/output/images/openipc.*.tgz \
         ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
 
     echo_c 35 "\nAssembled firmware available in:"
@@ -46,6 +47,7 @@ copy_to_tftp() {
     scp -r ${FIRMWARE_DIR}/output/images/autoupdate* \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
+        ${FIRMWARE_DIR}/output/images/openipc.*.tgz \
         ${TFTP_STORAGE}
 }
 
