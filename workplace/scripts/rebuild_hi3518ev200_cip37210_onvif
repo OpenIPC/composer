@@ -1,0 +1,16 @@
+#!/bin/bash
+
+cd ../../openipc
+pwd
+
+
+rm -rf \
+    output/per-package/libtomcrypt output/per-package/libtommath \
+    output/build/libtomcrypt-* output/build/libtommath-*
+
+
+rm -rf \
+    output/per-package/onvif-simple-server \
+    output/build/onvif-simple-server-* \
+
+BOARD=hi3518ev200_cip37210 make br-onvif-simple-server-{dirclean,rebuild}
