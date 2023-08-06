@@ -28,7 +28,7 @@ echo_c() {
 }
 
 copy_to_archive() {
-    echo_c 32 "Copy files to archive"
+    echo_c 32 "Copying files to local archive"
     mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
     cp -a \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
@@ -46,7 +46,7 @@ copy_to_archive() {
 }
 
 copy_to_tftp() {
-    echo_c 32 "\nCopy files to TFTP server"
+    echo_c 32 "\nCopying files to a TFTP server using SCP protocol"
     scp -r \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
