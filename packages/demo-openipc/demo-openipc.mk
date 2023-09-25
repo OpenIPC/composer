@@ -8,7 +8,7 @@ DEMO_OPENIPC_LICENSE = MIT
 DEMO_OPENIPC_LICENSE_FILES = LICENSE
 
 define DEMO_OPENIPC_EXTRACT_CMDS
-	cp ../general/package/demo-openipc/src/* $(@D)/
+	cp -avr $(DEMO_OPENIPC_PKGDIR)/src/* $(@D)/
 endef
 
 define DEMO_OPENIPC_BUILD_CMDS
@@ -17,7 +17,7 @@ endef
 
 define DEMO_OPENIPC_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 755 -d $(TARGET_DIR)/etc/init.d
-	cp ../general/package/demo-openipc/files/S97demo $(TARGET_DIR)/etc/init.d
+	cp $(DEMO_OPENIPC_PKGDIR)/files/S97demo $(TARGET_DIR)/etc/init.d
 
 	install -m 0755 -D $(@D)/demo-openipc $(TARGET_DIR)/usr/sbin/demo-openipc
 endef

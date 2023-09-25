@@ -44,5 +44,16 @@ baresip() {
 }
 
 
+gps() {
+    #
+    rm -rf \
+        output/per-package/gps-openipc \
+        output/build/gps-openipc*
+    #
+    BOARD=gk7205v200_ultimate_baresip make br-gps-openipc-{dirclean,rebuild}
+}
 
-baresip
+
+#baresip
+
+gps

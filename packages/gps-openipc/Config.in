@@ -1,0 +1,7 @@
+config BR2_PACKAGE_GPS_OPENIPC
+	bool "gps-openipc"
+	default n
+	help
+	  Minimalistic package for getting coordinates and time from GPS receiver.
+
+	  https://openipc.org
