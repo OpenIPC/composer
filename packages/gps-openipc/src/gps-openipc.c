@@ -4,6 +4,45 @@
 //
 //-----------------------------------------------------------------------------------------
 
+
+/*
+#
+Basic Init
+#
+AT+CGPS=0               //  Close GPS before set
+AT+CGPSNMEAPORTCFG=3    //  Set port for NMEA data
+AT+CGNSSMODE=15,1       //  Configure sat mode
+AT+CGPSNMEA=197119      //  or
+AT+CGPSNMEA=200191      //  or
+AT+CGPSHOT              //  Is used to hot start GPS session
+#
+#
+#
+Other usage
+#
+AT+CGPSAUTO=1           //  To have the GPS begin on startup
+#
+AT+CGPSINFO             //  Print GPS information to the serial port
+#
+AT+CGPSINFOCFG=5,31     //  NMEA Output to AT port, 5 second is used to report NMEA sentence, 31 is used to set the whole  NMEA sentence bit(s
+*/
+
+/*
+CGNSSMODE: <gnss_mode>,<dpo_mode>
+This command is used to configure GPS, GLONASS, BEIDOU and QZSS support mode.
+Add to get the required combination, eg, 5 = GLONSASS + GALILEO
+gnss_mode:
+bit0 : GLONASS   //  1
+bit1 : BEIDOU    //  2
+bit2 : GALILEO   //  4
+bit3 : QZSS      //  8
+dpo_mode :       //  reduces power in the RF section, 1 = RF is only powered long enough to get gnss signal
+ 0 disable
+ 1 enable
+*/
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
