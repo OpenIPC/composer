@@ -29,7 +29,7 @@ cd composer
 * hi3518ev200_smarthome                 Development
 * hi3536dv100_backupper                 Development
 * msc313e_lite_baresip                  -
-* ssc337_ultimate_broadband             Partnership project
+* ssc337de_ultimate_broadband           Partnership project
 * ssc338q_lite_ask                      Partnership project
 * t31_lite_baresip                      -
 * t31_lite_convoy                       Partnership project
