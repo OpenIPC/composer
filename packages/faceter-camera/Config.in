@@ -1,0 +1,5 @@
+config BR2_PACKAGE_FACETER_CAMERA
+	bool "faceter-camera"
+	default y
+	help
+	  Faceter camera application
