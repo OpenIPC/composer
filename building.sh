@@ -69,6 +69,21 @@ select_project() {
     fi
 }
 
+copy_extra_packages() {
+    extra_packages=${COMPOSER_DIR}/packages
+    firmware_packages=${FIRMWARE_DIR}/general/package
+    cp -afv $extra_packages/* $firmware_packages
+    packages_list_file=$firmware_packages/Config.in
+    for f in "$extra_packages"/*
+    do
+        package_name=$(basename $f)
+        if ! grep -Fq "$package_name" $packages_list_file
+        then
+            printf 'source "$BR2_EXTERNAL_GENERAL_PATH/package/%s/Config.in"\n' $package_name >> $packages_list_file
+        fi
+    done
+}
+
 echo_c 37 "COMPOSER - custom OpenIPC firmware builder"
 echo_c 30 "https://openipc.org/"
 echo_c 30 "Version: ${VERSION}"
@@ -96,7 +111,9 @@ else
 fi
 
 echo_c 33 "\nCopying extra packages"
-cp -afv ${COMPOSER_DIR}/packages/* ${FIRMWARE_DIR}/general/package
+# cp -afv ${COMPOSER_DIR}/packages/* ${FIRMWARE_DIR}/general/package
+copy_extra_packages
+
 
 echo_c 33 "\nCopying project files"
 cp -afv ${COMPOSER_DIR}/projects/${PROJECT}/*  ${FIRMWARE_DIR}
