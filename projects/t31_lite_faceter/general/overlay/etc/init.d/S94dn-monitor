@@ -1,0 +1,10 @@
+#!/bin/sh
+
+
+if [ /usr/bin/dn-monitor.sh ]; then
+    dn-monitor.sh > /dev/null 2>&1 &
+else
+    echo "The day/night monitor DISABLED"
+fi
+
+exit 0
