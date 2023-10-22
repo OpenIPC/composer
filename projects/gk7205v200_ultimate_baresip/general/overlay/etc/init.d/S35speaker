@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# GPIO initialization and voltage supply to the LFD
+#
 devmem 0x120c0010 32 2
 [ -d /sys/class/gpio/gpio12 ] || echo 12 >/sys/class/gpio/export
 echo out >/sys/class/gpio/gpio12/direction

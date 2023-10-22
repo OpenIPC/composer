@@ -1,9 +1,0 @@
-#!/bin/sh
-
-device=$(fw_printenv -n wlandev)
-
-if [ "$1" = "start" ] && [ ! -z "$device" ]; then
-	if /etc/wireless "$device"; then
-		echo "$device" | logger
-	fi
-fi

@@ -19,7 +19,7 @@ nightMode:
   enabled: true
   irSensorPinInvert: false
   irCutPin1: 15
-  irCutPin2: 14
+  irCutPin2: 13
 records:
   enabled: false
   path: /mnt/mmc/%Y/%m/%d/%H.mp4
