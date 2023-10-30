@@ -46,8 +46,8 @@ BR2_ROOTFS_POST_BUILD_SCRIPT="$(BR2_EXTERNAL)/scripts/rootfs_script.sh"
 
 # OpenIPC configuration
 BR2_TOOLCHAIN_BUILDROOT_VENDOR="openipc"
-BR2_TARGET_GENERIC_ISSUE="Welcome to OpenIPC v2.2"
-BR2_TARGET_GENERIC_HOSTNAME="openipc-gk7205v300"
+BR2_TARGET_GENERIC_ISSUE="Welcome to OpenIPC"
+BR2_TARGET_GENERIC_HOSTNAME="openipc-gk7205v300-oko"
 BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL)/package/all-patches"
 
 # OpenIPC packages

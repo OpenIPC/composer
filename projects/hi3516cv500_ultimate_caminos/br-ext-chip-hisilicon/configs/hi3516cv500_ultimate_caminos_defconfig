@@ -44,8 +44,8 @@ BR2_ROOTFS_POST_BUILD_SCRIPT="$(BR2_EXTERNAL)/scripts/rootfs_script.sh"
 
 # OpenIPC configuration
 BR2_TOOLCHAIN_BUILDROOT_VENDOR="openipc"
-BR2_TARGET_GENERIC_ISSUE="Welcome to Caminos"
-BR2_TARGET_GENERIC_HOSTNAME="caminos-hi3516cv500"
+BR2_TARGET_GENERIC_ISSUE="Welcome to OpenIPC"
+BR2_TARGET_GENERIC_HOSTNAME="openipc-hi3516cv500-caminos"
 BR2_GLOBAL_PATCH_DIR="$(BR2_EXTERNAL)/package/all-patches"
 
 # OpenIPC packages
