@@ -1,6 +1,3 @@
-etc/sensor/gc2083-t31.bin
-etc/sensor/gc2083.yaml
-lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_gc2083_t31.ko
 etc/sensor/imx307-t31.bin
 etc/sensor/imx307.yaml
 lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_imx307_t31.ko
