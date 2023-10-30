@@ -1,0 +1,13 @@
+--- a/arch/arm/boot/dts/hi3516cv500-demb.dts	2023-06-02 13:57:21.000000000 +0300
++++ b/arch/arm/boot/dts/hi3516cv500-demb.dts	2023-10-30 22:41:51.579713883 +0300
+@@ -116,8 +116,8 @@
+ 
+ &mdio0 {
+ 	hisilicon,phy-reset-delays-us = <10000 20000 150000>;
+-	phy0: ethernet-phy@1 {
+-		reg = <1>;
++	phy0: ethernet-phy@0 {
++		reg = <0>;
+ 	};
+ };
+ 
