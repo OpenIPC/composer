@@ -15,6 +15,7 @@ cd composer
 
 ```
 * ak3918ev200_vulture                   -
+* gk7205v200_lite_elsar                 Partnership project
 * gk7205v200_lite_huahui                Partnership project
 * gk7205v200_lite_meldana               Partnership project
 * gk7205v200_lite_pusk                  Partnership project
@@ -25,6 +26,7 @@ cd composer
 * gk7205v300_ultimate_oko3              Stale
 * hi3516ev200_lite_repairer             Development
 * hi3516ev300_lite_meldana              Partnership project
+* hi3516cv500_ultimate_caminos          Partnership project
 * hi3518ev200_cip37210                  LTS status
 * hi3518ev200_smarthome                 Development
 * hi3536dv100_backupper                 Development
