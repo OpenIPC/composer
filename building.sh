@@ -122,6 +122,6 @@ echo_c 33 "\nBuilding the project"
 ./building.sh ${PROJECT}
 
 copy_to_archive
-copy_to_tftp
+# copy_to_tftp
 echo_c 35 "\nDone"
 cd "$COMPOSER_DIR"
