@@ -12,7 +12,7 @@ image:
   luminance: 50
 osd:
   enabled: false
-  template: "%a %e %B %Y %H:%M:%S %Z"
+  template: "OpenIPC | %F %T:%f"
 nightMode:
   enabled: true
   irCutPin1: 58
@@ -44,9 +44,9 @@ hls:
 youtube:
   enabled: false
 motionDetect:
-  enabled: true
+  enabled: false
   visualize: true
-  debug: true
+  debug: false
 ipeye:
   enabled: false
 watchdog:
@@ -55,4 +55,6 @@ watchdog:
 outgoing:
   enabled: true
   server: udp://172.19.32.18:5600
+isp:
+  slowShutter: disabled
 
