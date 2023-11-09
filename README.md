@@ -26,13 +26,15 @@ cd composer
 * gk7205v300_ultimate_oko               Stale
 * gk7205v300_ultimate_oko2              Stale
 * gk7205v300_ultimate_oko3              Stale
+* gk7205v300_ultimate_surveyorlabs      Partnership project
+* hi3516cv500_ultimate_caminos          Partnership project
 * hi3516ev200_lite_repairer             Development
 * hi3516ev300_lite_meldana              Partnership project
-* hi3516cv500_ultimate_caminos          Partnership project
 * hi3518ev200_cip37210                  LTS status
 * hi3518ev200_smarthome                 Development
 * hi3536dv100_backupper                 Development
 * msc313e_lite_baresip                  -
+* ssc333_lite_tapo-c110                 Experimental device
 * ssc337de_ultimate_broadband           Partnership project
 * ssc338q_lite_ask                      Partnership project
 * t31_lite_baresip                      -
@@ -41,14 +43,10 @@ cd composer
 * t31_lite_gateway                      Stale
 * t31_lite_hs                           -
 * t31_lite_vixand2                      Development
+* t31_lite_zftlab                       Partnership project
 * t31_vixand                            Stale
 * v3s_lichee                            -
 ```
 
 
 [logo]: https://openipc.org/assets/openipc-logo-black.svg
-
-
-
-
-
