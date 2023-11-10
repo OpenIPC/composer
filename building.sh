@@ -41,6 +41,8 @@ copy_to_archive() {
         cp -a ${FIRMWARE_DIR}/output/images/autoupdate* ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
     fi
 
+    ln -sf ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP} ${COMPOSER_DIR}/archive/${PROJECT}/current
+
     echo_c 35 "\nAssembled firmware available in:"
     tree -C "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
 }
