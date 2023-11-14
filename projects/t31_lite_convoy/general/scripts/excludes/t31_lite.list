@@ -10,6 +10,9 @@ lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_gc4023_t31.ko
 etc/sensor/gc4653-t31.bin
 etc/sensor/gc4653.yaml
 lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_gc4653_t31.ko
+etc/sensor/imx327-t31.bin
+etc/sensor/imx327.yaml
+lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_imx327_t31.ko
 etc/sensor/jxf37-t31.bin
 etc/sensor/jxf37.yaml
 lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_jxf37_t31.ko
