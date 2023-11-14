@@ -6,8 +6,9 @@ _A tool to compile custom OpenIPC firmware_
 
 ### Usage:
 
+```
 sudo apt-get update -y
-sudo apt-get install -y automake autotools-dev bc build-essential curl fzf git libtool rsync unzip # mc tree
+sudo apt-get install -y automake autotools-dev bc build-essential curl fzf git libtool rsync unzip mc tree python-is-python3
 git clone https://github.com/openipc/composer.git
 cd composer
 ./building.sh
