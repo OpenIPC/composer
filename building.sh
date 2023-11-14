@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# OpenIPC | version 2023.07.28
+# OpenIPC | version 2023.11.11
 
 # Autoupdate COMPOSER repo
 # Remove old building folder (for full rebuild)
@@ -30,6 +30,7 @@ echo_c() {
 copy_to_archive() {
     echo_c 32 "Copying files to local archive"
     mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
+    ln -sf ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP} ${COMPOSER_DIR}/archive/${PROJECT}/current
     cp -a \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
@@ -40,8 +41,6 @@ copy_to_archive() {
     if [ -f "${FIRMWARE_DIR}/output/images/autoupdate-kernel.img" ] ; then
         cp -a ${FIRMWARE_DIR}/output/images/autoupdate* ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}
     fi
-
-    ln -sf ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP} ${COMPOSER_DIR}/archive/${PROJECT}/current
 
     echo_c 35 "\nAssembled firmware available in:"
     tree -C "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"

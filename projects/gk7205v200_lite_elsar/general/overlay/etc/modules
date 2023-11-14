@@ -5,5 +5,5 @@ exfat
 # For XM530 SD cards
 # sdio0_sd
 
-Modem
+# Modem
 option
