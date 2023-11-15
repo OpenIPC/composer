@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# https://github.com/OpenIPC/firmware/releases/download/latest/u-boot-ssc325-nor.bin
+
+UBOOT=../../archive/ssc325_lite_imou-f22ap/u-boot-ssc325-nor.bin
+KERNEL=../../archive/ssc325_lite_imou-f22ap/current/uImage.ssc325
+ROOTFS=../../archive/ssc325_lite_imou-f22ap/current/rootfs.squashfs.ssc325
+
+
+../../openipc/general/scripts/compile4programmer.sh ${UBOOT} ${KERNEL} ${ROOTFS} 8
+

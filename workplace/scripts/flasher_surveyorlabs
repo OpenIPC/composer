@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# https://github.com/OpenIPC/firmware/releases/download/latest/u-boot-gk7205v300-universal.bin
+
+UBOOT=../../archive/gk7205v300_ultimate_surveyorlabs/u-boot-gk7205v300-universal.bin
+KERNEL=../../archive/gk7205v300_ultimate_surveyorlabs/current/uImage.gk7205v300
+ROOTFS=../../archive/gk7205v300_ultimate_surveyorlabs/current/rootfs.squashfs.gk7205v300
+
+
+../../openipc/general/scripts/compile4programmer.sh ${UBOOT} ${KERNEL} ${ROOTFS} 16
