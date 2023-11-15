@@ -1,6 +1,3 @@
-etc/sensor/gc2053-t31.bin
-etc/sensor/gc2053.yaml
-lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_gc2053_t31.ko
 etc/sensor/gc2083-t31.bin
 etc/sensor/gc2083.yaml
 lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_gc2083_t31.ko
@@ -50,7 +47,6 @@ lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_sc4236_t31.ko
 etc/sensor/sc5235-t31.bin
 etc/sensor/sc5235.yaml
 lib/modules/3.10.14__isvp_swan_1.0__/extra/sensor_sc5235_t31.ko
-etc/sensor/imx335.yaml
 etc/sensor/jxf22.yaml
 etc/sensor/jxf23.yaml
 etc/sensor/jxh42.yaml

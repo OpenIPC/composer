@@ -23,7 +23,10 @@ records:
   maxUsage: 95
 video0:
   enabled: true
-  codec: h264
+  codec: h265
+  bitrate: 5000
+  size: 1920x1080
+  fps: 25
 video1:
   enabled: false
 jpeg:
@@ -57,4 +60,3 @@ outgoing:
   server: udp://172.19.32.18:5600
 isp:
   slowShutter: disabled
-
