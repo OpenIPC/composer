@@ -30,7 +30,6 @@ echo_c() {
 copy_to_archive() {
     echo_c 32 "Copying files to local archive"
     mkdir -p "${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP}"
-    ln -sf ${COMPOSER_DIR}/archive/${PROJECT}/${TIMESTAMP} ${COMPOSER_DIR}/archive/${PROJECT}/current
     cp -a \
         ${FIRMWARE_DIR}/output/images/rootfs.squashfs.* \
         ${FIRMWARE_DIR}/output/images/uImage.* \
