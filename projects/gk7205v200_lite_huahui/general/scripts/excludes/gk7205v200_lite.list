@@ -8,8 +8,7 @@ etc/sensors/imx307_i2c_2l_1080p.ini
 etc/sensors/imx335_i2c_4M.ini
 etc/sensors/jxf23_i2c_1080p.ini
 etc/sensors/jxf23_i2c_dc_1080p.ini
-etc/sensors/sc2232h_i2c_1080p.ini
-etc/sensors/sc2232h_i2c_1080p.ini
+etc/sensors/sc200ai_i2c_1080p.ini
 etc/sensors/sc2232h_i2c_1080p.ini
 etc/sensors/sc2239_i2c_1080p.ini
 etc/sensors/sc223a_i2c_1080p.ini
