@@ -35,6 +35,7 @@ audio_telev_pt          101                     # payload type for telephone-eve
 
 # Video
 #video_source           v4l2,/dev/video0
+#video_source           fakevideo,nil
 #video_display          x11,nil
 video_size              640x480
 video_bitrate           1000000
