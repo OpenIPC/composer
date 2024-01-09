@@ -3,7 +3,7 @@
 
   <footer class="x-small">
     <div class="container pt-3">
-      <p class="text-end">Работает на <a href="https://github.com/OpenIPC/microbe-web">Microbe Web UI</a>, части <a href="https://openipc.org/">OpenIPC  </a>, доработано <a href="https://meldana.com/services/remont-i-razrabotka/razrabotka-elektroniki/">Meldana RND</a>.</p>
+      <p class="text-end">Работает на <a href="https://github.com/OpenIPC/webui">WebUI</a>, части <a href="https://openipc.org/">OpenIPC  </a>, доработано <a href="https://meldana.com/services/remont-i-razrabotka/razrabotka-elektroniki/">Meldana RND</a>.</p>
     </div>
   </footer>
 

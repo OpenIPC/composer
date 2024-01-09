@@ -1,5 +1,5 @@
-config BR2_PACKAGE_MICROBE_WEB
-	bool "microbe-web"
+config BR2_PACKAGE_WEBUI
+	bool "webui"
 	help
 	  The simplest web interface constructor based on
 	  httpd and haserl.
