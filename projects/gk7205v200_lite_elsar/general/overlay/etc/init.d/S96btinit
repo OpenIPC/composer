@@ -1,0 +1,4 @@
+#!/bin/sh
+
+sleep 3
+$(yaml-cli -i /etc/majestic.yaml -g .isp.sensorConfig | tr '/.' ' ' | awk '{print $3}').sh
