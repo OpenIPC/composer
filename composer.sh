@@ -60,7 +60,7 @@ copy_to_tftp() {
 
 select_project() {
     AVAILABLE_PROJECTS=$(ls -1 ${COMPOSER_DIR}/projects | grep '_')
-    cmd="whiptail --title \"Available projects\" --menu \"Please select a project from the list below:\" 25 78 16"
+    cmd="whiptail --title \"Available devices\" --menu \"Please select a device from the list below:\" 20 70 12"
     for p in $AVAILABLE_PROJECTS; do cmd="${cmd} \"$p\" \"\""; done
     PROJECT=$(eval "${cmd} 3>&1 1>&2 2>&3")
     if [ $? != 0 ]; then
@@ -119,7 +119,7 @@ echo_c 33 "\nCopying project files"
 cp -afv ${COMPOSER_DIR}/projects/${PROJECT}/*  ${FIRMWARE_DIR}
 
 echo_c 33 "\nBuilding the project"
-./building.sh ${PROJECT}
+make BOARD=${DEVICE} all
 
 copy_to_archive
 # copy_to_tftp
