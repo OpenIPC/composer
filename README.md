@@ -29,21 +29,15 @@ cd composer
 * gk7205v300_ultimate_oko3              Stale
 * gk7205v300_ultimate_surveyorlabs      Partnership project
 * hi3516cv500_ultimate_caminos          Partnership project
-* hi3516ev200_lite_repairer             Development
 * hi3516ev300_lite_meldana              Partnership project
 * hi3518ev200_smarthome                 Development
 * hi3536dv100_backupper                 Development
 * msc313e_lite_baresip                  -
 * ssc337de_ultimate_broadband           Partnership project
 * ssc338q_lite_ask                      Partnership project
-* t31_lite_baresip                      -
 * t31_lite_convoy                       Partnership project
 * t31_lite_faceter                      Partnership project
-* t31_lite_gateway                      Stale
-* t31_lite_hs                           -
-* t31_lite_vixand2                      Development
-* t31_lite_zftlab                       Partnership project
-* t31_vixand                            Stale
+* t31_lite_zftlab                       Experimental
 * v3s_lichee                            -
 ```
 
