@@ -119,7 +119,7 @@ echo_c 33 "\nCopying project files"
 cp -afv ${COMPOSER_DIR}/projects/${PROJECT}/*  ${FIRMWARE_DIR}
 
 echo_c 33 "\nBuilding the project"
-make BOARD=${DEVICE} all
+make BOARD=${PROJECT} all
 
 copy_to_archive
 # copy_to_tftp
