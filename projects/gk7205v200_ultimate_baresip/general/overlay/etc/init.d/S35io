@@ -1,0 +1,25 @@
+#!/bin/sh
+
+
+# Initializing the second UART as /tty/AMA1
+#
+devmem 0x112c0070 32 0x2
+devmem 0x112c0074 32 0x2
+
+
+# GPIO initialization and voltage supply to the LFD - gpio12
+#
+devmem 0x120c0010 32 2
+gpio set 12
+
+
+# GPIO initialization - gpio40
+#
+devmem 0x112c0040 32 0x0
+gpio clear 40
+
+
+# GPIO initialization - gpio41
+#
+devmem 0x112c0044 32 0x0
+gpio clear 41
