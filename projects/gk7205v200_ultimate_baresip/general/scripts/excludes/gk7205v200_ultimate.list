@@ -34,7 +34,8 @@
 #
 /lib/modules/4.9.37/kernel/drivers/i2c/*/*.ko
 /lib/modules/4.9.37/kernel/drivers/scsi/*.ko
-/lib/modules/4.9.37/kernel/drivers/usb
+/lib/modules/4.9.37/kernel/drivers/usb/gadget/*.ko
+/lib/modules/4.9.37/kernel/drivers/usb/gadget/function/*.ko
 /lib/modules/4.9.37/kernel/fs/f2fs/*.ko
 #
 /usr/bin/baresip
