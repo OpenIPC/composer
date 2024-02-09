@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+
+ifup wg0
+
+exit 0

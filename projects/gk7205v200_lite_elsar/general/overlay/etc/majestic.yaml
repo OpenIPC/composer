@@ -23,7 +23,7 @@ video0:
   enabled: true
   codec: h264
 video1:
-  enabled: false
+  enabled: true
 jpeg:
   enabled: true
 mjpeg:
