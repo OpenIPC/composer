@@ -1,6 +1,6 @@
 #!/bin/sh
 
-(devmem 0x112c0048 32 0x0 ; sleep 0.1 ; gpio clear 71 ; sleep 0.1 ; gpio set 71 ; sleep 0.1) >/dev/null
+(devmem 0x112c0048 32 0x0 ; sleep 1 ; gpio clear 71 ; sleep 1 ; gpio set 71 ; sleep 1) >/dev/null
 
 ipctool2 i2cset 0x88 0x02 0xCC
 ipctool2 i2cset 0x88 0x05 0x00
