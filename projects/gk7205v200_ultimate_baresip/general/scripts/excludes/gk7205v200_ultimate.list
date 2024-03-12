@@ -9,7 +9,7 @@
 /etc/sensors/sc200ai_i2c_1080p.ini
 /etc/sensors/sc2232h_i2c_1080p.ini
 /etc/sensors/sc2239_i2c_1080p.ini
-/etc/sensors/sc223a_i2c_1080p.ini
+#/etc/sensors/sc223a_i2c_1080p.ini
 /etc/sensors/sc2335_i2c_1080p.ini
 /etc/sensors/smtsec_imx307_i2c_4l_1080p.ini
 #
@@ -26,7 +26,7 @@
 /usr/lib/sensors/libsns_sc200ai.so
 /usr/lib/sensors/libsns_sc2232h.so
 /usr/lib/sensors/libsns_sc2239.so
-/usr/lib/sensors/libsns_sc223a.so
+#/usr/lib/sensors/libsns_sc223a.so
 /usr/lib/sensors/libsns_sc223a_4l.so
 /usr/lib/sensors/libsns_sc2335.so
 /usr/lib/sensors/libsns_sc3235.so
