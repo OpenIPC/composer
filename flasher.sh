@@ -17,7 +17,7 @@ KERNEL=$(find ~/composer/archive/${PROJECT} -name "uImage.*" | sort | tail -n 1)
 ROOTFS=$(find ~/composer/archive/${PROJECT} -name "rootfs.squashfs.*" | sort | tail -n 1)
 
 
-echo -e "\n\nCreate fullflash dump for ${PROJECT} project\n\nUsed components:\n"
+echo -e "\n\nCreate full flash dump for ${PROJECT} project\n\nUsed components:\n"
 echo -e "${UBOOT}\n${KERNEL}\n${ROOTFS}\n"
 
 openipc/general/scripts/compile4programmer.sh ${UBOOT} ${KERNEL} ${ROOTFS} 16
